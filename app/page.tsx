@@ -252,7 +252,7 @@ export default function HomePage() {
         <div style={{minHeight: '440px', position: 'relative'}}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2620.0!2d2.3706!3d48.9168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66d8a6c4e9b0f%3A0x0!2s217+Avenue+Jean+Jaur%C3%A8s%2C+93300+Aubervilliers!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr"
-            width="100%" height="100%" style={{border: '0', display: 'block', minHeight: '440px', filter: 'saturate(0.8) contrast(1.05)'}} allowFullScreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            width="100%" height="100%" style={{border: '0', display: 'block', minHeight: '440px', filter: 'saturate(0.8) contrast(1.05)'}} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
         {/*Infos pratiques */}

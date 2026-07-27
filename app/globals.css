@@ -150,8 +150,8 @@
 
     .social-proof { padding:48px 0; background:var(--gray-light); overflow:hidden; }
     .sp-label { text-align:center; font-size:12px; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:28px; }
-    .logos-wrap { overflow:hidden; position:relative; }
-    .logos-wrap::before,.logos-wrap::after { content:''; position:absolute; top:0;bottom:0; width:120px; z-index:2; pointer-events:none; }
+    .logos-wrap { overflow:hidden; position:relative; max-width:1200px; margin:0 auto; padding:0 24px; }
+    .logos-wrap::before,.logos-wrap::after { content:''; position:absolute; top:0;bottom:0; width:100px; z-index:2; pointer-events:none; }
     .logos-wrap::before { left:0; background:linear-gradient(to right,var(--gray-light),transparent); }
     .logos-wrap::after { right:0; background:linear-gradient(to left,var(--gray-light),transparent); }
     .logos-track { display:flex; gap:120px; align-items:center; animation:marquee 36s linear infinite; width:max-content; padding:8px 0; }
