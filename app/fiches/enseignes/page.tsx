@@ -21,18 +21,6 @@ export default function FicheEnseignesPage() {
   return (
     <div className="page active" id="page-fiche-enseignes">
 
-
-  {/*Breadcrumb */}
-  <div className="fiche-breadcrumb">
-    <div className="container" style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
-      <Link href="/">Accueil</Link>
-      <span className="sep">›</span>
-      <Link href="/services">Nos services</Link>
-      <span className="sep">›</span>
-      <span className="current">Enseignes & Signalétique</span>
-    </div>
-  </div>
-
   {/*HERO */}
   <section className="fiche-hero">
     <div className="fiche-hero-blob"></div>
@@ -44,7 +32,7 @@ export default function FicheEnseignesPage() {
         <div className="reveal">
           <div className="fiche-kicker"><span className="k-dot"></span>Enseignes & Signalétique · LED & Relief</div>
           <h1>Des enseignes qui<br /><span className="gradient-text">marquent les esprits</span></h1>
-          <p className="fiche-hero-desc">Lettres découpées, boîtiers lumineux, rétroéclairage, relief PMMA — 7 techniques fabriquées dans nos ateliers à Aubervilliers et exposées dans notre <strong>showroom</strong>. Venez voir avant de commander.</p>
+          <p className="fiche-hero-desc">7 techniques lumineuses fabriquées à Aubervilliers, exposées dans notre <strong>showroom</strong>. Venez voir avant de commander.</p>
           <div className="fiche-hero-ctas">
             <Link className="btn-primary" href="/devis">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>
@@ -113,7 +101,7 @@ export default function FicheEnseignesPage() {
       <div style={{maxWidth: '680px', marginBottom: '60px'}} className="reveal">
         <div className="section-tag">✦ Nos 7 techniques</div>
         <h2 style={{marginTop: '16px', fontFamily: '\'Righteous\',sans-serif', fontSize: 'clamp(28px,3.5vw,46px)', fontWeight: '400', letterSpacing: '-0.022em', textTransform: 'uppercase'}}>Toutes exposées dans<br />notre showroom</h2>
-        <p style={{marginTop: '16px', fontSize: '17.5px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Chaque technique crée un effet lumineux unique. On vous guide pour choisir la plus adaptée à votre façade, votre identité visuelle et votre budget.</p>
+        <p style={{marginTop: '16px', fontSize: '17.5px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Chaque technique crée un effet lumineux unique. On vous guide vers la plus adaptée à votre façade et votre budget.</p>
       </div>
 
       {/*Grid 3 colonnes */}
@@ -130,12 +118,10 @@ export default function FicheEnseignesPage() {
               <span style={{width: '28px', height: '28px', borderRadius: '8px', background: 'var(--gradient)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontWeight: '400', fontSize: '13px', color: 'white', fontFamily: '\'Righteous\',sans-serif', flexShrink: '0', textTransform: 'uppercase'}}>A</span>
               <h3 style={{fontSize: '17px', margin: '0'}}>Ajouré (creusé)</h3>
             </div>
-            <p>Découpe directe dans la face du panneau — la lumière passe uniquement à travers la forme des lettres évidées.</p>
+            <p>La lumière ne passe qu'à travers la forme des lettres évidées — effet design, très lisible de nuit.</p>
             <ul>
-              <li>Effet ombre portée très design</li>
-              <li>Contraste fort, très lisible de nuit</li>
-              <li>Idéal pour façades contemporaines</li>
-              <li>Panneau reste opaque autour des lettres</li>
+              <li>Contraste fort, look contemporain</li>
+              <li>Idéal en façade</li>
             </ul>
           </div>
         </div>
@@ -152,12 +138,10 @@ export default function FicheEnseignesPage() {
               <h3 style={{fontSize: '17px', margin: '0'}}>PVC Rétroéclairé</h3>
             </div>
             <p style={{marginBottom: '10px'}}><span style={{display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '12px', fontWeight: '600', color: 'var(--violet)', background: 'rgba(43,106,239,0.08)', padding: '3px 10px', borderRadius: '20px'}}>10 à 20 mm d'épaisseur</span></p>
-            <p>Lettres pleines en PVC décollées du support — l'éclairage LED crée un halo lumineux tout autour de la lettre.</p>
+            <p>Lettres décollées du support — halo lumineux effet néon doux tout autour.</p>
             <ul>
-              <li>Halo lumineux effet néon doux</li>
-              <li>Léger et facile à installer</li>
-              <li>Bon rapport qualité/prix</li>
-              <li>Idéal pour commerces & restaurants</li>
+              <li>Meilleur rapport qualité/prix</li>
+              <li>Idéal commerces & restaurants</li>
             </ul>
           </div>
         </div>
@@ -174,12 +158,10 @@ export default function FicheEnseignesPage() {
               <h3 style={{fontSize: '17px', margin: '0'}}>Alu Rétroéclairé</h3>
             </div>
             <p style={{marginBottom: '10px'}}><span style={{display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '12px', fontWeight: '600', color: 'var(--text-secondary)', background: 'rgba(0,0,0,0.06)', padding: '3px 10px', borderRadius: '20px'}}>3 mm · finition miroir/or</span></p>
-            <p>Lettres fines en aluminium sur entretoises — look haut de gamme avec reflets lumineux derrière la lettre métallique.</p>
+            <p>Lettres métal fines, reflets lumineux à l'arrière — rendu premium ultra élégant.</p>
             <ul>
               <li>Finition miroir, brossé ou doré</li>
-              <li>Rendu premium ultra luxueux</li>
-              <li>Idéal pour hôtels, bureaux, showrooms</li>
-              <li>Lumière rasante très élégante</li>
+              <li>Idéal hôtels, bureaux, showrooms</li>
             </ul>
           </div>
         </div>
@@ -196,11 +178,9 @@ export default function FicheEnseignesPage() {
               <h3 style={{fontSize: '17px', margin: '0'}}>Relief PMMA</h3>
             </div>
             <p style={{marginBottom: '10px'}}><span style={{display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '12px', fontWeight: '600', color: 'var(--blue)', background: 'rgba(43,106,239,0.08)', padding: '3px 10px', borderRadius: '20px'}}>10 · 15 · 20 mm</span></p>
-            <p>Lettres en relief plein en plexiglas (PMMA) — diffusion lumineuse franche et épurée sur la face avant.</p>
+            <p>Lettres en relief plein — diffusion lumineuse franche et épurée sur toute la face avant.</p>
             <ul>
-              <li>Volume clean, très lumineux</li>
-              <li>Disponible en toutes couleurs</li>
-              <li>Diffusion uniforme face avant</li>
+              <li>Volume clean, toutes couleurs</li>
               <li>Résistant aux intempéries</li>
             </ul>
           </div>
@@ -218,12 +198,10 @@ export default function FicheEnseignesPage() {
               <h3 style={{fontSize: '17px', margin: '0'}}>Relief PMMA + Alu</h3>
             </div>
             <p style={{marginBottom: '10px'}}><span style={{display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '12px', fontWeight: '600', color: 'var(--text-secondary)', background: 'rgba(0,0,0,0.06)', padding: '3px 10px', borderRadius: '20px'}}>10 · 15 · 20 mm · alu brossé</span></p>
-            <p>Corps plexiglas + face aluminium brossé — face métallique opaque, lumière par les chants et l'arrière.</p>
+            <p>Face aluminium brossé, lumière subtile sur les chants — design très haut de gamme.</p>
             <ul>
-              <li>Design très haut de gamme</li>
-              <li>Face métallique opaque &amp; mate</li>
-              <li>Lumière en chant pour effet subtil</li>
-              <li>Parfait pour bureaux &amp; enseignes premium</li>
+              <li>Face métallique opaque & mate</li>
+              <li>Parfait bureaux & enseignes premium</li>
             </ul>
           </div>
         </div>
@@ -240,12 +218,10 @@ export default function FicheEnseignesPage() {
               <h3 style={{fontSize: '17px', margin: '0'}}>Boîtier Plexi</h3>
             </div>
             <p style={{marginBottom: '10px'}}><span style={{display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '12px', fontWeight: '600', color: 'var(--blue)', background: 'rgba(43,106,239,0.08)', padding: '3px 10px', borderRadius: '20px'}}>60 mm · volume maximal</span></p>
-            <p>Lettre boîtier grand relief en plexiglas — diffusion intégrale face avant texturée et chants lumineux.</p>
+            <p>Grand relief, diffusion intégrale face avant et chants lumineux — impact visuel maximum.</p>
             <ul>
-              <li>Impact visuel maximum</li>
-              <li>Lumière sur face + chants</li>
-              <li>Idéal pour grandes façades</li>
-              <li>Excellent rendu de jour comme de nuit</li>
+              <li>Idéal grandes façades</li>
+              <li>Excellent rendu jour et nuit</li>
             </ul>
           </div>
         </div>
@@ -263,12 +239,10 @@ export default function FicheEnseignesPage() {
                 <h3 style={{fontSize: '17px', margin: '0'}}>Boîtier Plexi (côtés opaques)</h3>
               </div>
               <p style={{marginBottom: '10px'}}><span style={{display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '12px', fontWeight: '600', color: 'var(--text-secondary)', background: 'rgba(0,0,0,0.06)', padding: '3px 10px', borderRadius: '20px'}}>60 mm · chants opaques</span></p>
-              <p>Lettre boîtier 6 cm avec chants opaques — lumière projetée uniquement vers l'avant pour un contraste fort et une lisibilité maximale.</p>
+              <p>Chants opaques, lumière projetée vers l'avant seulement — contraste et lisibilité maximale.</p>
               <ul>
-                <li>Contraste maximal de face</li>
                 <li>Lisibilité parfaite en journée</li>
-                <li>Chants opaques = lumière canalisée</li>
-                <li>Idéal pour enseignes commerciales</li>
+                <li>Idéal enseignes commerciales</li>
               </ul>
             </div>
           </div>
@@ -293,10 +267,10 @@ export default function FicheEnseignesPage() {
       </div>
       <div className="fiche-process-steps">
         <div className="fiche-process-line"></div>
-        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" /><path d="M13 13l6 6" /></svg></div><span className="p-num">1</span></div><h4 className="p-title">Consultation & relevé</h4><p className="p-desc">On vient mesurer votre façade et vous conseille sur la technique la plus adaptée à votre commerce.</p></div>
-        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg></div><span className="p-num">2</span></div><h4 className="p-title">Conception & BAT 3D</h4><p className="p-desc">Nos graphistes créent un bon à tirer 3D pour visualiser le rendu final avant production.</p></div>
-        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg></div><span className="p-num">3</span></div><h4 className="p-title">Fabrication en atelier</h4><p className="p-desc">Production dans notre atelier à Aubervilliers avec câblage LED intégré et contrôle qualité.</p></div>
-        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M20 12h-2M4 12H2M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41M12 20v-2M12 4V2" /></svg></div><span className="p-num">4</span></div><h4 className="p-title">Installation & mise en service</h4><p className="p-desc">Pose par nos techniciens, raccordement électrique, test et livraison clé en main.</p></div>
+        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" /><path d="M13 13l6 6" /></svg></div><span className="p-num">1</span></div><h4 className="p-title">Consultation & relevé</h4><p className="p-desc">On mesure votre façade et vous conseille la technique la plus adaptée.</p></div>
+        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg></div><span className="p-num">2</span></div><h4 className="p-title">Conception & BAT 3D</h4><p className="p-desc">Visualisez le rendu final avant production.</p></div>
+        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg></div><span className="p-num">3</span></div><h4 className="p-title">Fabrication en atelier</h4><p className="p-desc">Câblage LED intégré, contrôle qualité à chaque étape.</p></div>
+        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M20 12h-2M4 12H2M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41M12 20v-2M12 4V2" /></svg></div><span className="p-num">4</span></div><h4 className="p-title">Installation</h4><p className="p-desc">Pose, raccordement et test — livraison clé en main.</p></div>
       </div>
     </div>
   </section>
@@ -333,24 +307,16 @@ export default function FicheEnseignesPage() {
         </div>
         <div className="fiche-faq-list reveal">
           <div className="fiche-faq-item">
-            <button className="fiche-faq-q" onClick={(e) => { toggleFicheFaq(e.currentTarget) } }><span className="fiche-faq-q-text">Comment choisir la bonne technique d'enseigne ?</span><span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span></button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Venez dans notre showroom : vous pourrez toucher et comparer les 7 techniques en conditions réelles. On vous conseille aussi en fonction de votre budget, de la taille de votre façade et de votre identité visuelle. Le devis est gratuit et sans engagement.</div></div>
+            <button className="fiche-faq-q" onClick={(e) => { toggleFicheFaq(e.currentTarget) } }><span className="fiche-faq-q-text">Comment choisir la bonne technique ?</span><span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span></button>
+            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Venez au showroom toucher et comparer les 7 techniques. On vous conseille selon votre budget, votre façade et votre image. Devis gratuit et sans engagement.</div></div>
           </div>
           <div className="fiche-faq-item">
             <button className="fiche-faq-q" onClick={(e) => { toggleFicheFaq(e.currentTarget) } }><span className="fiche-faq-q-text">Faut-il un permis pour installer une enseigne ?</span><span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span></button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Pour les enseignes de moins de 1 m², une simple déclaration préalable en mairie suffit souvent. Au-delà, une demande d'autorisation est nécessaire. Nous vous accompagnons dans ces démarches administratives sur demande.</div></div>
+            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">En dessous de 1 m², une déclaration en mairie suffit souvent. Au-delà, on vous accompagne dans les démarches d'autorisation.</div></div>
           </div>
           <div className="fiche-faq-item">
-            <button className="fiche-faq-q" onClick={(e) => { toggleFicheFaq(e.currentTarget) } }><span className="fiche-faq-q-text">L'éclairage LED est-il économique ?</span><span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span></button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Oui. Nos modules LED consomment 60 à 80% moins qu'un néon traditionnel, pour une durée de vie de 50 000 heures. Une enseigne de taille moyenne coûte moins de 5€/mois en électricité.</div></div>
-          </div>
-          <div className="fiche-faq-item">
-            <button className="fiche-faq-q" onClick={(e) => { toggleFicheFaq(e.currentTarget) } }><span className="fiche-faq-q-text">Quel est le délai de fabrication et d'installation ?</span><span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span></button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Comptez 7 à 15 jours ouvrés après validation du BAT, selon la complexité de l'enseigne. L'installation est planifiée avec vous — intervention rapide en Île-de-France.</div></div>
-          </div>
-          <div className="fiche-faq-item">
-            <button className="fiche-faq-q" onClick={(e) => { toggleFicheFaq(e.currentTarget) } }><span className="fiche-faq-q-text">Proposez-vous le SAV et l'entretien ?</span><span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span></button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Oui. Nous assurons la maintenance et le remplacement des modules LED défaillants. Toutes nos enseignes sont garanties 2 ans pièces et main d'œuvre. Nous intervenons rapidement en cas de panne.</div></div>
+            <button className="fiche-faq-q" onClick={(e) => { toggleFicheFaq(e.currentTarget) } }><span className="fiche-faq-q-text">Quel délai entre commande et pose ?</span><span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span></button>
+            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">7 à 15 jours ouvrés après validation du BAT. Installation planifiée avec vous, intervention rapide en Île-de-France.</div></div>
           </div>
         </div>
       </div>

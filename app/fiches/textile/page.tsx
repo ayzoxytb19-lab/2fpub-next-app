@@ -21,18 +21,6 @@ export default function FicheTextilePage() {
   return (
     <div className="page active" id="page-fiche-textile">
 
-
-  {/*Breadcrumb */}
-  <div className="fiche-breadcrumb">
-    <div className="container" style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
-      <Link href="/">Accueil</Link>
-      <span className="sep">›</span>
-      <Link href="/services">Nos services</Link>
-      <span className="sep">›</span>
-      <span className="current">Vêtements professionnels</span>
-    </div>
-  </div>
-
   {/*HERO */}
   <section className="fiche-hero">
     <div className="fiche-hero-blob"></div>
@@ -44,7 +32,7 @@ export default function FicheTextilePage() {
         <div className="reveal">
           <div className="fiche-kicker"><span className="k-dot"></span>Textile professionnel · Broderie & Flocage</div>
           <h1>Vêtements pro<br /><span className="gradient-text">à votre image</span></h1>
-          <p className="fiche-hero-desc">Broderie et flocage — habiller votre équipe avec votre identité visuelle pour une image professionnelle impeccable. Chaque pièce fabriquée dans nos ateliers à Aubervilliers, contrôlée et testée par <strong>Aqua Pressing</strong>.</p>
+          <p className="fiche-hero-desc">Broderie et flocage — habillez votre équipe à votre image. Fabriqué à Aubervilliers, contrôlé par <strong>Aqua Pressing</strong>.</p>
           <div className="fiche-hero-ctas">
             <Link className="btn-primary" href="/devis">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>
@@ -130,12 +118,10 @@ export default function FicheTextilePage() {
           <div className="fiche-tech-body">
             <h3>Broderie</h3>
             <p style={{marginBottom: '10px'}}><span style={{display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '12px', fontWeight: '600', color: 'var(--blue)', background: 'rgba(43,106,239,0.08)', padding: '3px 10px', borderRadius: '20px'}}>12 pièces minimum</span></p>
-            <p>La technique la plus qualitative — relief en 3D, rendu premium sur tout type de support.</p>
+            <p>La technique la plus qualitative — relief 3D, rendu premium sur tout support.</p>
             <ul>
-              <li>Rendu relief 3D noble et durable</li>
-              <li>Résistance au lavage industriel</li>
-              <li>Polos, chemises, vestes, casquettes, bonnets</li>
-              <li>Idéal pour logo et monogramme</li>
+              <li>Résiste au lavage industriel</li>
+              <li>Idéal logo et monogramme</li>
             </ul>
           </div>
         </div>
@@ -148,12 +134,10 @@ export default function FicheTextilePage() {
           <div className="fiche-tech-body">
             <h3>Flocage</h3>
             <p style={{marginBottom: '10px'}}><span style={{display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '12px', fontWeight: '600', color: 'var(--violet)', background: 'rgba(43,106,239,0.08)', padding: '3px 10px', borderRadius: '20px'}}>10 pièces minimum</span></p>
-            <p>Pose à chaud pour des motifs grands formats avec couleurs vives et dégradés sans limite.</p>
+            <p>Pose à chaud, grands formats, couleurs vives et dégradés sans limite.</p>
             <ul>
-              <li>Couleurs vives, dégradés possibles</li>
-              <li>Grands formats sur t-shirts, sweats</li>
-              <li>Ne s'applique pas sur tissus nylon</li>
-              <li>Idéal pour visuels complexes</li>
+              <li>Idéal visuels complexes</li>
+              <li>Ne s'applique pas sur nylon</li>
             </ul>
           </div>
         </div>
@@ -295,10 +279,10 @@ export default function FicheTextilePage() {
       </div>
       <div className="fiche-process-steps">
         <div className="fiche-process-line"></div>
-        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg></div><span className="p-num">1</span></div><h4 className="p-title">Échange & devis</h4><p className="p-desc">Envoyez-nous votre logo et votre besoin — devis gratuit chiffré sous 48h.</p></div>
-        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><path d="M2 2l7.586 7.586" /><circle cx="11" cy="11" r="2" /></svg></div><span className="p-num">2</span></div><h4 className="p-title">Création graphique</h4><p className="p-desc">Nos graphistes vectorisent et optimisent votre logo pour la technique choisie.</p></div>
-        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg></div><span className="p-num">3</span></div><h4 className="p-title">Fabrication en atelier</h4><p className="p-desc">Production à Aubervilliers — contrôle qualité sur chaque pièce, testé par Aqua Pressing.</p></div>
-        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21" /><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" /></svg></div><span className="p-num">4</span></div><h4 className="p-title">Retrait à l'atelier</h4><p className="p-desc">Au 217 av. Jean Jaurès, Aubervilliers — prêt en 5 à 7 jours ouvrés.</p></div>
+        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg></div><span className="p-num">1</span></div><h4 className="p-title">Échange & devis</h4><p className="p-desc">Envoyez votre logo — devis gratuit sous 48h.</p></div>
+        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><path d="M2 2l7.586 7.586" /><circle cx="11" cy="11" r="2" /></svg></div><span className="p-num">2</span></div><h4 className="p-title">Création graphique</h4><p className="p-desc">Vectorisation et optimisation pour la technique choisie.</p></div>
+        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg></div><span className="p-num">3</span></div><h4 className="p-title">Fabrication en atelier</h4><p className="p-desc">Contrôle qualité sur chaque pièce, testé par Aqua Pressing.</p></div>
+        <div className="p-step reveal"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21" /><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" /></svg></div><span className="p-num">4</span></div><h4 className="p-title">Retrait à l'atelier</h4><p className="p-desc">Prêt en 5 à 7 jours ouvrés.</p></div>
       </div>
     </div>
   </section>
@@ -319,20 +303,16 @@ export default function FicheTextilePage() {
             <div className="fiche-faq-a"><div className="fiche-faq-a-inner"><strong>12 pièces pour la broderie</strong> (hors casquettes/bonnets) et <strong>10 pièces pour le flocage</strong>. Pour les casquettes et bonnets, contactez-nous directement — la quantité est flexible.</div></div>
           </div>
           <div className="fiche-faq-item">
-            <button className="fiche-faq-q" onClick={(e) => { toggleFicheFaq(e.currentTarget) } }><span className="fiche-faq-q-text">Puis-je fournir mes propres vêtements ?</span><span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span></button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Oui, nous travaillons sur des vêtements fournis par le client si les matières sont compatibles. Nous pouvons aussi vous sourcer les textiles (B&amp;C, Kariban, Fruit of the Loom…) directement.</div></div>
-          </div>
-          <div className="fiche-faq-item">
             <button className="fiche-faq-q" onClick={(e) => { toggleFicheFaq(e.currentTarget) } }><span className="fiche-faq-q-text">Quel est le délai de fabrication ?</span><span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span></button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">5 à 7 jours ouvrés après validation du bon à tirer. Pour les commandes urgentes, contactez-nous — nous nous adaptons à vos deadlines.</div></div>
+            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">5 à 7 jours ouvrés après validation du bon à tirer. Commande urgente ? Contactez-nous, on s'adapte.</div></div>
           </div>
           <div className="fiche-faq-item">
             <button className="fiche-faq-q" onClick={(e) => { toggleFicheFaq(e.currentTarget) } }><span className="fiche-faq-q-text">La broderie résiste-t-elle au lavage machine ?</span><span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span></button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Absolument. La broderie résiste à des centaines de lavages sans s'effriter ni se décolorer — idéale pour les vêtements de travail quotidiens. Chaque pièce est validée par Aqua Pressing.</div></div>
+            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Absolument, elle résiste à des centaines de lavages sans s'effriter — idéale pour les vêtements de travail quotidiens.</div></div>
           </div>
           <div className="fiche-faq-item">
-            <button className="fiche-faq-q" onClick={(e) => { toggleFicheFaq(e.currentTarget) } }><span className="fiche-faq-q-text">Proposez-vous des tarifs dégressifs pour grandes quantités ?</span><span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span></button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Oui, tarifs dégressifs à partir de 50 pièces. Plus la quantité est importante, plus le coût unitaire diminue. Demandez un devis personnalisé pour une simulation.</div></div>
+            <button className="fiche-faq-q" onClick={(e) => { toggleFicheFaq(e.currentTarget) } }><span className="fiche-faq-q-text">Tarifs dégressifs pour grandes quantités ?</span><span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span></button>
+            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Oui, dès 50 pièces. Demandez un devis personnalisé pour une simulation.</div></div>
           </div>
         </div>
       </div>

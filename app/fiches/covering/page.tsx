@@ -21,18 +21,6 @@ export default function FicheCoveringPage() {
   return (
     <div className="page active" id="page-fiche-covering">
 
-
-  {/*Breadcrumb */}
-  <div className="fiche-breadcrumb">
-    <div className="container" style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
-      <Link href="/">Accueil</Link>
-      <span className="sep">›</span>
-      <Link href="/services">Nos services</Link>
-      <span className="sep">›</span>
-      <span className="current">Covering & Marquage véhicule</span>
-    </div>
-  </div>
-
   {/*HERO */}
   <section className="fiche-hero">
     <div className="fiche-hero-blob"></div>
@@ -42,7 +30,7 @@ export default function FicheCoveringPage() {
         <div className="reveal">
           <div className="fiche-kicker"><span className="k-dot"></span>Covering · Marquage · Vitrophanie</div>
           <h1>Vos véhicules,<br /><span className="gradient-text">votre pub en mouvement</span></h1>
-          <p className="fiche-hero-desc">Du simple adhésif découpe au semi-covering total — transformez votre flotte en support publicitaire mobile. Pose réalisée dans notre atelier à Aubervilliers, sur tous types de véhicules professionnels.</p>
+          <p className="fiche-hero-desc">De l'adhésif découpe au semi-covering total — transformez votre flotte en support publicitaire mobile. Pose en atelier à Aubervilliers.</p>
           <div className="fiche-hero-ctas">
             <Link className="btn-primary" href="/devis">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>
@@ -106,13 +94,13 @@ export default function FicheCoveringPage() {
       <div style={{maxWidth: '680px', marginBottom: '60px'}} className="reveal">
         <div className="section-tag">✦ Nos 4 techniques</div>
         <h2 style={{marginTop: '16px', fontFamily: '\'Righteous\',sans-serif', fontSize: 'clamp(28px,3.5vw,46px)', fontWeight: '400', letterSpacing: '-0.022em', textTransform: 'uppercase'}}>La bonne technique<br />pour chaque budget</h2>
-        <p style={{marginTop: '16px', fontSize: '17.5px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Du marquage sobre au covering complet — on adapte la solution à votre image, votre flotte et votre budget.</p>
+        <p style={{marginTop: '16px', fontSize: '17.5px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Du marquage sobre au covering complet — on adapte la solution à votre image et votre budget.</p>
       </div>
       <div style={{display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '24px'}} className="reveal">
         {/*Technique 1 */}
         <div style={{background: 'var(--gray-light)', borderRadius: '20px', overflow: 'hidden', border: '1.5px solid rgba(0,0,0,0.06)'}}>
           <div style={{position: 'relative', width: '100%', paddingTop: '56.25%', background: 'linear-gradient(135deg,#0a1628,#1A3A7A)', overflow: 'hidden'}}>
-            <img loading="lazy" src="/mockup-decoupe.jpg" alt="Pub Adhésif Découpe" style={{position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover'}} onError={(e) => { e.currentTarget.style.display='none' } } />
+            <img loading="lazy" src="/mockups-covering/pub-adhesif-decoupe.jpg" alt="Pub Adhésif Découpe" style={{position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover'}} onError={(e) => { e.currentTarget.style.display='none' } } />
             <div style={{position: 'absolute', inset: '0', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '8px', opacity: '0.5'}}>
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
               <span style={{fontSize: '11px', color: 'white', fontWeight: '400', fontFamily: '\'Righteous\',sans-serif', textTransform: 'uppercase'}}>mockup-decoupe.jpg</span>
@@ -120,7 +108,7 @@ export default function FicheCoveringPage() {
           </div>
           <div style={{padding: '24px 28px 28px'}}>
             <h3 style={{fontFamily: '\'Righteous\',sans-serif', fontSize: '18px', fontWeight: '400', marginBottom: '8px', textTransform: 'uppercase'}}>Pub Adhésif Découpe</h3>
-            <p style={{fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '16px', lineHeight: '1.65'}}>Vinyle découpé monochrome appliqué directement sur la carrosserie. Sans fond, idéal pour textes, logos et formes simples. Sobre et efficace.</p>
+            <p style={{fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '16px', lineHeight: '1.65'}}>Vinyle découpé monochrome, sans fond — idéal textes et logos. Sobre et efficace.</p>
             <div style={{display: 'flex', flexWrap: 'wrap', gap: '8px'}}>
               <span style={{padding: '4px 10px', background: 'rgba(43,106,239,0.08)', color: 'var(--blue)', borderRadius: '50px', fontSize: '12px', fontWeight: '600'}}>Sans fond</span>
               <span style={{padding: '4px 10px', background: 'rgba(43,106,239,0.08)', color: 'var(--blue)', borderRadius: '50px', fontSize: '12px', fontWeight: '600'}}>1 couleur / multicolore</span>
@@ -131,7 +119,7 @@ export default function FicheCoveringPage() {
         {/*Technique 2 */}
         <div style={{background: 'var(--gray-light)', borderRadius: '20px', overflow: 'hidden', border: '1.5px solid rgba(0,0,0,0.06)'}}>
           <div style={{position: 'relative', width: '100%', paddingTop: '56.25%', background: 'linear-gradient(135deg,#0D2B6E,var(--brand))', overflow: 'hidden'}}>
-            <img loading="lazy" src="/mockup-impression.jpg" alt="Pub Adhésif & Impression" style={{position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover'}} onError={(e) => { e.currentTarget.style.display='none' } } />
+            <img loading="lazy" src="/mockups-covering/pub-adhesif-impression.jpg" alt="Pub Adhésif & Impression" style={{position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover'}} onError={(e) => { e.currentTarget.style.display='none' } } />
             <div style={{position: 'absolute', inset: '0', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '8px', opacity: '0.5'}}>
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
               <span style={{fontSize: '11px', color: 'white', fontWeight: '400', fontFamily: '\'Righteous\',sans-serif', textTransform: 'uppercase'}}>mockup-impression.jpg</span>
@@ -139,7 +127,7 @@ export default function FicheCoveringPage() {
           </div>
           <div style={{padding: '24px 28px 28px'}}>
             <h3 style={{fontFamily: '\'Righteous\',sans-serif', fontSize: '18px', fontWeight: '400', marginBottom: '8px', textTransform: 'uppercase'}}>Pub Adhésif & Impression</h3>
-            <p style={{fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '16px', lineHeight: '1.65'}}>Impression numérique haute définition sur vinyle. Photos, dégradés, illustrations multicolores. Rendu professionnel sur véhicule léger.</p>
+            <p style={{fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '16px', lineHeight: '1.65'}}>Impression HD sur vinyle — photos, dégradés, multicolore. Rendu pro sur véhicule léger.</p>
             <div style={{display: 'flex', flexWrap: 'wrap', gap: '8px'}}>
               <span style={{padding: '4px 10px', background: 'rgba(43,106,239,0.08)', color: 'var(--blue)', borderRadius: '50px', fontSize: '12px', fontWeight: '600'}}>Images & photos</span>
               <span style={{padding: '4px 10px', background: 'rgba(43,106,239,0.08)', color: 'var(--blue)', borderRadius: '50px', fontSize: '12px', fontWeight: '600'}}>Multicolore HD</span>
@@ -150,15 +138,11 @@ export default function FicheCoveringPage() {
         {/*Technique 3 */}
         <div style={{background: 'var(--gray-light)', borderRadius: '20px', overflow: 'hidden', border: '1.5px solid rgba(0,0,0,0.06)'}}>
           <div style={{position: 'relative', width: '100%', paddingTop: '56.25%', background: 'linear-gradient(135deg,#1a1230,#4B21A0)', overflow: 'hidden'}}>
-            <img loading="lazy" src="/mockup-3panneaux.jpg" alt="Pub 3 Panneaux" style={{position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover'}} onError={(e) => { e.currentTarget.style.display='none' } } />
-            <div style={{position: 'absolute', inset: '0', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '8px', opacity: '0.5'}}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
-              <span style={{fontSize: '11px', color: 'white', fontWeight: '400', fontFamily: '\'Righteous\',sans-serif', textTransform: 'uppercase'}}>mockup-3panneaux.jpg</span>
-            </div>
+            <img loading="lazy" src="/mockups-covering/pub-3-panneaux.jpg" alt="Pub 3 Panneaux" style={{position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover'}} />
           </div>
           <div style={{padding: '24px 28px 28px'}}>
             <h3 style={{fontFamily: '\'Righteous\',sans-serif', fontSize: '18px', fontWeight: '400', marginBottom: '8px', textTransform: 'uppercase'}}>Pub 3 Panneaux</h3>
-            <p style={{fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '16px', lineHeight: '1.65'}}>Covering des 3 faces principales (2 côtés + arrière) en impression multicolore. Couverture maximale pour utilitaires, forte visibilité urbaine.</p>
+            <p style={{fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '16px', lineHeight: '1.65'}}>2 côtés + arrière en impression multicolore. Couverture maximale, forte visibilité urbaine.</p>
             <div style={{display: 'flex', flexWrap: 'wrap', gap: '8px'}}>
               <span style={{padding: '4px 10px', background: 'rgba(43,106,239,0.08)', color: 'var(--blue)', borderRadius: '50px', fontSize: '12px', fontWeight: '600'}}>Images, multicouleurs</span>
               <span style={{padding: '4px 10px', background: 'rgba(43,106,239,0.08)', color: 'var(--blue)', borderRadius: '50px', fontSize: '12px', fontWeight: '600'}}>3 faces couvertes</span>
@@ -169,7 +153,7 @@ export default function FicheCoveringPage() {
         {/*Technique 4 */}
         <div style={{background: 'var(--gray-light)', borderRadius: '20px', overflow: 'hidden', border: '1.5px solid rgba(0,0,0,0.06)'}}>
           <div style={{position: 'relative', width: '100%', paddingTop: '56.25%', background: 'linear-gradient(135deg,#0a0a1a,var(--accent))', overflow: 'hidden'}}>
-            <img loading="lazy" src="/mockup-semicovering.jpg" alt="Pub Semi-Covering" style={{position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover'}} onError={(e) => { e.currentTarget.style.display='none' } } />
+            <img loading="lazy" src="/mockups-covering/pub-semi-covering.jpg" alt="Pub Semi-Covering" style={{position: 'absolute', inset: '0', width: '100%', height: '100%', objectFit: 'cover'}} onError={(e) => { e.currentTarget.style.display='none' } } />
             <div style={{position: 'absolute', inset: '0', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '8px', opacity: '0.5'}}>
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
               <span style={{fontSize: '11px', color: 'white', fontWeight: '400', fontFamily: '\'Righteous\',sans-serif', textTransform: 'uppercase'}}>mockup-semicovering.jpg</span>
@@ -177,7 +161,7 @@ export default function FicheCoveringPage() {
           </div>
           <div style={{padding: '24px 28px 28px'}}>
             <h3 style={{fontFamily: '\'Righteous\',sans-serif', fontSize: '18px', fontWeight: '400', marginBottom: '8px', textTransform: 'uppercase'}}>Pub Semi-Covering</h3>
-            <p style={{fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '16px', lineHeight: '1.65'}}>Couverture totale ou partielle de la carrosserie en vinyle imprimé. Résultat spectaculaire, transformation complète du véhicule. Notre offre la plus impactante.</p>
+            <p style={{fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '16px', lineHeight: '1.65'}}>Couverture totale ou partielle en vinyle imprimé. Notre offre la plus impactante.</p>
             <div style={{display: 'flex', flexWrap: 'wrap', gap: '8px'}}>
               <span style={{padding: '4px 10px', background: 'rgba(43,106,239,0.08)', color: 'var(--blue)', borderRadius: '50px', fontSize: '12px', fontWeight: '600'}}>Images, multicouleurs</span>
               <span style={{padding: '4px 10px', background: 'rgba(43,106,239,0.08)', color: 'var(--blue)', borderRadius: '50px', fontSize: '12px', fontWeight: '600'}}>Impact maximal</span>
@@ -430,10 +414,10 @@ export default function FicheCoveringPage() {
       </div>
       <div className="process-row">
         <div className="process-line"></div>
-        <div className="p-step reveal delay-1"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><rect x="8" y="2" width="8" height="4" rx="1" ry="1" /></svg></div><span className="p-num">1</span></div><h3 className="p-title">Devis en ligne</h3><p className="p-desc">Remplissez le formulaire — type de véhicule, technique, quantité. Réponse sous 48h.</p></div>
-        <div className="p-step reveal delay-2"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><path d="M2 2l7.586 7.586" /><circle cx="11" cy="11" r="2" /></svg></div><span className="p-num">2</span></div><h3 className="p-title">Validation du BAT</h3><p className="p-desc">Maquette sur le gabarit de votre véhicule. Vous validez avant toute impression.</p></div>
-        <div className="p-step reveal delay-3"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 6 2 18 2 18 9" /><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><rect x="6" y="14" width="12" height="8" /></svg></div><span className="p-num">3</span></div><h3 className="p-title">Impression & découpe</h3><p className="p-desc">Production sur traceurs grand format. Vinyle certifié UV, résistant aux intempéries.</p></div>
-        <div className="p-step reveal delay-4"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13" rx="2" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg></div><span className="p-num">4</span></div><h3 className="p-title">Pose en atelier</h3><p className="p-desc">Vos véhicules posés par nos techniciens à Aubervilliers. Résultat impeccable, sans bulle.</p></div>
+        <div className="p-step reveal delay-1"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><rect x="8" y="2" width="8" height="4" rx="1" ry="1" /></svg></div><span className="p-num">1</span></div><h3 className="p-title">Devis en ligne</h3><p className="p-desc">Véhicule, technique, quantité — réponse sous 48h.</p></div>
+        <div className="p-step reveal delay-2"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><path d="M2 2l7.586 7.586" /><circle cx="11" cy="11" r="2" /></svg></div><span className="p-num">2</span></div><h3 className="p-title">Validation du BAT</h3><p className="p-desc">Maquette sur le gabarit de votre véhicule, à valider avant impression.</p></div>
+        <div className="p-step reveal delay-3"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 6 2 18 2 18 9" /><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><rect x="6" y="14" width="12" height="8" /></svg></div><span className="p-num">3</span></div><h3 className="p-title">Impression & découpe</h3><p className="p-desc">Vinyle certifié UV, résistant aux intempéries.</p></div>
+        <div className="p-step reveal delay-4"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13" rx="2" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg></div><span className="p-num">4</span></div><h3 className="p-title">Pose en atelier</h3><p className="p-desc">Posé à Aubervilliers, résultat impeccable, sans bulle.</p></div>
       </div>
     </div>
   </section>
@@ -451,38 +435,24 @@ export default function FicheCoveringPage() {
         <div className="fiche-faq-list reveal">
           <div className="fiche-faq-item">
             <button className="fiche-faq-q" onClick={(e) => { toggleFaq(e.currentTarget) } }>
-              <span className="fiche-faq-q-text">Combien de temps dure la pose d'un covering ?</span>
+              <span className="fiche-faq-q-text">Combien de temps dure la pose ?</span>
               <span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span>
             </button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Comptez entre 2h et une journée selon la surface couverte. Un adhésif découpe simple prend 2 à 3h. Un semi-covering complet peut nécessiter une journée entière. Votre véhicule vous est rendu le jour même ou le lendemain.</div></div>
+            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Entre 2h et une journée selon la surface. Adhésif découpe : 2-3h. Semi-covering complet : jusqu'à une journée. Véhicule rendu le jour même ou le lendemain.</div></div>
           </div>
           <div className="fiche-faq-item">
             <button className="fiche-faq-q" onClick={(e) => { toggleFaq(e.currentTarget) } }>
-              <span className="fiche-faq-q-text">Le covering abîme-t-il la peinture du véhicule ?</span>
+              <span className="fiche-faq-q-text">Le covering abîme-t-il la peinture ?</span>
               <span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span>
             </button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Non, au contraire : le vinyle protège la peinture d'origine des UV, micro-rayures et intempéries. À la dépose, la peinture est préservée. Nos techniciens utilisent des produits et techniques adaptés pour ne laisser aucune trace.</div></div>
-          </div>
-          <div className="fiche-faq-item">
-            <button className="fiche-faq-q" onClick={(e) => { toggleFaq(e.currentTarget) } }>
-              <span className="fiche-faq-q-text">Quelle est la durée de vie d'un covering ?</span>
-              <span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span>
-            </button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Le vinyle de marquage a une durée de vie de 4 à 7 ans selon l'exposition au soleil. Les couleurs restent vives et les adhésifs tiennent parfaitement sur la durée. Un entretien régulier (lavage à la main ou haute pression douce) suffit.</div></div>
-          </div>
-          <div className="fiche-faq-item">
-            <button className="fiche-faq-q" onClick={(e) => { toggleFaq(e.currentTarget) } }>
-              <span className="fiche-faq-q-text">Puis-je apporter mon propre design ?</span>
-              <span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span>
-            </button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Oui, parfaitement. Fournissez vos fichiers en haute résolution (AI, PDF vectoriel ou EPS) et nos équipes adaptent le gabarit à votre véhicule. Si vous n'avez pas de fichier, notre studio crée votre design depuis zéro sur devis.</div></div>
+            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Non, au contraire : le vinyle protège la peinture d'origine des UV et micro-rayures. À la dépose, elle est préservée.</div></div>
           </div>
           <div className="fiche-faq-item">
             <button className="fiche-faq-q" onClick={(e) => { toggleFaq(e.currentTarget) } }>
               <span className="fiche-faq-q-text">Avez-vous des tarifs dégressifs pour une flotte ?</span>
               <span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span>
             </button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Oui, tarifs dégressifs à partir de 3 véhicules. Plus la flotte est importante, plus le coût unitaire diminue. Contactez-nous pour un devis flotte personnalisé avec simulation de prix.</div></div>
+            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Oui, dès 3 véhicules. Plus la flotte est importante, plus le coût unitaire diminue — contactez-nous pour un devis personnalisé.</div></div>
           </div>
         </div>
       </div>

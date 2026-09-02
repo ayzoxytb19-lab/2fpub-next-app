@@ -432,7 +432,9 @@ export async function submitCatalogueGate() {
         body: JSON.stringify({ email, source: "catalogue-gate", date: new Date().toISOString() }),
         headers: { Accept: "application/json", "Content-Type": "application/json" },
       });
-    } catch {}
+    } catch (err) {
+      console.error("[catalogueGate] Erreur réseau lors de la soumission:", err);
+    }
   }
   const form = document.getElementById("catalogueGateForm");
   const success = document.getElementById("catalogueGateSuccess");
@@ -573,11 +575,15 @@ export async function handleDevisSubmit(e: React.FormEvent<HTMLFormElement>) {
       const success = document.getElementById("successMsg");
       if (wrap) wrap.style.display = "none";
       if (success) success.style.display = "block";
-    } else if (btn) {
-      btn.textContent = "Erreur — réessayez";
-      btn.disabled = false;
+    } else {
+      console.error("[devisForm] Échec de soumission:", res.status, res.statusText);
+      if (btn) {
+        btn.textContent = "Erreur — réessayez";
+        btn.disabled = false;
+      }
     }
-  } catch {
+  } catch (err) {
+    console.error("[devisForm] Erreur réseau lors de la soumission:", err);
     if (btn) {
       btn.textContent = originalText;
       btn.disabled = false;
@@ -613,11 +619,15 @@ export async function handleRgpdSubmit(e: React.FormEvent<HTMLFormElement>) {
       const success = document.getElementById("rgpdSuccessMsg");
       if (wrap) wrap.style.display = "none";
       if (success) success.style.display = "block";
-    } else if (btn) {
-      btn.textContent = "Erreur — réessayez";
-      btn.disabled = false;
+    } else {
+      console.error("[rgpdForm] Échec de soumission:", res.status, res.statusText);
+      if (btn) {
+        btn.textContent = "Erreur — réessayez";
+        btn.disabled = false;
+      }
     }
-  } catch {
+  } catch (err) {
+    console.error("[rgpdForm] Erreur réseau lors de la soumission:", err);
     if (btn) {
       btn.textContent = "Envoyer ma demande →";
       btn.disabled = false;

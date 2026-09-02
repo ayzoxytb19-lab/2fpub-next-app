@@ -40,7 +40,7 @@ export default function FicheVitrophaniesPage() {
         <div className="reveal">
           <div className="fiche-kicker"><span className="k-dot"></span>Vitrines · Baies vitrées · Cloisons</div>
           <h1>Vitrophanies &<br /><span className="gradient-text">films adhésifs</span></h1>
-          <p className="fiche-hero-desc">Autocollant classique ou découpé à la forme, film confidentiel, film décoratif, découpe adhésive numérique — nous habillons vitrines, baies vitrées et cloisons intérieures ou extérieures.</p>
+          <p className="fiche-hero-desc">Autocollant, film confidentiel ou décoratif — on habille vos vitrines, baies vitrées et cloisons.</p>
           <div className="fiche-hero-ctas">
             <Link className="btn-primary" href="/devis">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>

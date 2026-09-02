@@ -51,15 +51,24 @@ export default function ServicesPage() {
     <div className="container"><div className="service-inner">
       <div className="service-img-wrap reveal"><img loading="lazy" src="/photos-services/service-vehicules.jpg" alt="Marquage véhicule" /></div>
       <div className="reveal">
-        <span className="service-tag">Marquage véhicule</span>
-        <h2 className="service-title">Votre véhicule devient<br /><span className="gradient-text">votre meilleure pub</span></h2>
-        <p className="service-desc">Du simple logo adhésif au covering total — nous habillons vos véhicules pour qu'ils travaillent pour vous 24h/24 partout en France.</p>
-        <ul className="service-features">
-          <li>Covering total ou partiel</li>
-          <li>Semi-covering, lettrage adhésif, adhésif découpe</li>
-          <li>Magnétiques repositionnables pour flottes partagées</li>
-          <li>Résistant aux UV, lavages et intempéries</li>
-          <li>Pose professionnelle en atelier à Aubervilliers</li>
+        <h2 className="service-title" style={{fontSize: 'clamp(34px,4.2vw,52px)'}}>Marquage <span className="gradient-text">véhicule</span></h2>
+        <ul className="service-features-icons">
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 13l2-5a2 2 0 0 1 2-1.3h10a2 2 0 0 1 2 1.3l2 5" /><path d="M3 13h18v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" /><circle cx="7.5" cy="17.5" r="1.5" /><circle cx="16.5" cy="17.5" r="1.5" /></svg></div>
+            <span className="sfi-text">Covering total, partiel ou magnétique repositionnable</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 6l8.5 8.5" /><circle cx="4.5" cy="4.5" r="2.5" /><circle cx="4.5" cy="19.5" r="2.5" /><path d="M14.5 9.5L20 4" /><path d="M6 18l14-14" /></svg></div>
+            <span className="sfi-text">Semi-covering, lettrage adhésif, adhésif découpe</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l8 3.5v6c0 5-3.4 8.9-8 10.5-4.6-1.6-8-5.5-8-10.5v-6z" /></svg></div>
+            <span className="sfi-text">Résistant aux UV, lavages et intempéries</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg></div>
+            <span className="sfi-text">Pose professionnelle en atelier à Aubervilliers</span>
+          </li>
         </ul>
         <div className="svc-btn-group">
           <Link className="btn-gradient" href="/devis">Demander un devis →</Link>
@@ -74,15 +83,24 @@ export default function ServicesPage() {
     <div className="container"><div className="service-inner">
       <div className="service-img-wrap reveal"><img loading="lazy" src="/photos-services/service-vetements.jpg" alt="Vêtements personnalisés" /></div>
       <div className="reveal">
-        <span className="service-tag">Vêtements personnalisés</span>
-        <h2 className="service-title">Habillez votre équipe à<br /><span className="gradient-text">votre image</span></h2>
-        <p className="service-desc">Polos, t-shirts, vestes, casquettes, tabliers — personnalisés par broderie, flocage ou sérigraphie. Fabrication dans nos ateliers à Aubervilliers.</p>
-        <ul className="service-features">
-          <li>Broderie haute densité pour un rendu premium</li>
-          <li>Flocage vinyle ou flex</li>
-          <li>Sérigraphie selon les volumes</li>
-          <li>Large gamme de vêtements professionnels</li>
-          <li>Dès 1 pièce, remise volume à partir de 10 pièces</li>
+        <h2 className="service-title" style={{fontSize: 'clamp(34px,4.2vw,52px)'}}>Vêtements <span className="gradient-text">personnalisés</span></h2>
+        <ul className="service-features-icons">
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8h1.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" /></svg></div>
+            <span className="sfi-text">Broderie haute densité pour un rendu premium</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg></div>
+            <span className="sfi-text">Flocage vinyle ou flex, sérigraphie selon les volumes</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg></div>
+            <span className="sfi-text">Large gamme de vêtements professionnels</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="5" x2="5" y2="19" /><circle cx="6.5" cy="6.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" /></svg></div>
+            <span className="sfi-text">Dès 1 pièce, remise volume à partir de 10 pièces</span>
+          </li>
         </ul>
         <div className="svc-btn-group">
           <Link className="btn-gradient" href="/devis">Demander un devis →</Link>
@@ -97,15 +115,24 @@ export default function ServicesPage() {
     <div className="container"><div className="service-inner">
       <div className="service-img-wrap reveal"><img loading="lazy" src="/photos-services/service-enseignes.jpg" alt="Enseignes" /></div>
       <div className="reveal">
-        <span className="service-tag">Enseignes</span>
-        <h2 className="service-title">Enseignes lumineuses,<br /><span className="gradient-text">non lumineuses & drapeaux</span></h2>
-        <p className="service-desc">Enseignes lumineuses LED, enseignes non lumineuses, drapeaux enseigne — nous concevons, fabriquons et installons tous types de signalétiques de façade.</p>
-        <ul className="service-features">
-          <li>Enseignes lumineuses LED basse consommation</li>
-          <li>Enseignes non lumineuses (PVC, dibond, aluminium)</li>
-          <li>Drapeaux enseigne</li>
-          <li>Caissons lumineux simples ou doubles faces</li>
-          <li>Pose et installation par nos techniciens</li>
+        <h2 className="service-title" style={{fontSize: 'clamp(34px,4.2vw,52px)'}}>Enseignes <span className="gradient-text">lumineuses</span></h2>
+        <ul className="service-features-icons">
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18h6" /><path d="M10 22h4" /><path d="M12 2a6 6 0 0 0-6 6c0 2.5 1.5 4 2.5 5s1.5 2 1.5 3h4c0-1 .5-2 1.5-3s2.5-2.5 2.5-5a6 6 0 0 0-6-6z" /></svg></div>
+            <span className="sfi-text">Enseignes lumineuses LED basse consommation, caissons</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg></div>
+            <span className="sfi-text">Enseignes non lumineuses (PVC, dibond, aluminium)</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" /><line x1="4" y1="22" x2="4" y2="15" /></svg></div>
+            <span className="sfi-text">Drapeaux enseigne</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg></div>
+            <span className="sfi-text">Pose et installation par nos techniciens</span>
+          </li>
         </ul>
         <div className="svc-btn-group">
           <Link className="btn-gradient" href="/devis">Demander un devis →</Link>
@@ -120,15 +147,24 @@ export default function ServicesPage() {
     <div className="container"><div className="service-inner">
       <div className="service-img-wrap reveal"><img loading="lazy" src="/photos-realisations/sticker-vitrophanie-1.jpg" alt="Vitrophanies" /></div>
       <div className="reveal">
-        <span className="service-tag">Vitrophanies</span>
-        <h2 className="service-title">Adhésifs & films<br /><span className="gradient-text">sur toutes surfaces</span></h2>
-        <p className="service-desc">Autocollant classique ou découpé à la forme, film confidentiel, film décoratif, découpe adhésive — nous habillons vitrines, baies vitrées et cloisons.</p>
-        <ul className="service-features">
-          <li>Autocollant classique ou découpé à la forme</li>
-          <li>Film confidentiel (dépoli, givre)</li>
-          <li>Film décoratif</li>
-          <li>Découpe adhésive numérique</li>
-          <li>Application intérieure ou extérieure</li>
+        <h2 className="service-title" style={{fontSize: 'clamp(34px,4.2vw,52px)'}}>Adhésifs / <span className="gradient-text">vitrophanies</span></h2>
+        <ul className="service-features-icons">
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 6l8.5 8.5" /><circle cx="4.5" cy="4.5" r="2.5" /><circle cx="4.5" cy="19.5" r="2.5" /><path d="M14.5 9.5L20 4" /><path d="M6 18l14-14" /></svg></div>
+            <span className="sfi-text">Autocollant classique ou découpé à la forme (découpe numérique)</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2s6 7.5 6 12a6 6 0 0 1-12 0c0-4.5 6-12 6-12z" /></svg></div>
+            <span className="sfi-text">Film confidentiel (dépoli, givré)</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="13.5" cy="6.5" r="1.5" /><circle cx="17.5" cy="10.5" r="1.5" /><circle cx="8.5" cy="7.5" r="1.5" /><circle cx="6.5" cy="12.5" r="1.5" /><path d="M12 21a9 9 0 1 1 9-9c0 1.5-1.5 2-3 2h-2a2 2 0 0 0-2 2c0 1.5-1 3-2 5z" /></svg></div>
+            <span className="sfi-text">Film décoratif</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 22V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v18Z" /><path d="M9 22v-4h6v4" /><path d="M8 6h.01" /><path d="M16 6h.01" /><path d="M8 10h.01" /><path d="M16 10h.01" /></svg></div>
+            <span className="sfi-text">Application intérieure ou extérieure</span>
+          </li>
         </ul>
         <div className="svc-btn-group">
           <Link className="btn-gradient" href="/devis">Demander un devis →</Link>
@@ -145,15 +181,24 @@ export default function ServicesPage() {
         <img src="/photos-services/serivce-Plaques & Panneaux.jpeg" alt="Plaques et panneaux professionnels" style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block', borderRadius: 'var(--radius-lg)'}} />
       </div>
       <div className="reveal">
-        <span className="service-tag">Plaques & Panneaux</span>
-        <h2 className="service-title">Signalétique professionnelle<br /><span className="gradient-text">tous supports</span></h2>
-        <p className="service-desc">Panneaux grand format, panneaux de chantier, plaques transparentes, plaques professionnelles — fabriqués en atelier pour une signalétique durable et impactante.</p>
-        <ul className="service-features">
-          <li>Panneaux grand format</li>
-          <li>Panneaux de chantier</li>
-          <li>Plaques transparentes (plexiglas, PVC)</li>
-          <li>Plaques professionnelles (dibond, aluminium)</li>
-          <li>Impression HD, résistance extérieure</li>
+        <h2 className="service-title" style={{fontSize: 'clamp(34px,4.2vw,52px)'}}>Plaques /<br /><span className="gradient-text">panneaux</span></h2>
+        <ul className="service-features-icons">
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M21 15l-5-5L5 21" /></svg></div>
+            <span className="sfi-text">Panneaux grand format</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" /></svg></div>
+            <span className="sfi-text">Panneaux de chantier</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg></div>
+            <span className="sfi-text">Plaques transparentes ou professionnelles (plexiglas, dibond, alu)</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l8 3.5v6c0 5-3.4 8.9-8 10.5-4.6-1.6-8-5.5-8-10.5v-6z" /></svg></div>
+            <span className="sfi-text">Impression HD, résistance extérieure</span>
+          </li>
         </ul>
         <div className="svc-btn-group">
           <Link className="btn-gradient" href="/devis">Demander un devis →</Link>
@@ -170,15 +215,24 @@ export default function ServicesPage() {
         <img src="/photos-services/service-logo-lumineux.png" alt="Logo lumineux en relief" style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 70%', display: 'block', borderRadius: 'var(--radius-lg)'}} />
       </div>
       <div className="reveal">
-        <span className="service-tag">Logo lumineux</span>
-        <h2 className="service-title">Votre logo en relief<br /><span className="gradient-text">lumineux & impactant</span></h2>
-        <p className="service-desc">Logo lumineux en toute forme — pour comptoir, mural, intérieur ou extérieur. Un support de communication premium qui valorise votre marque en toutes circonstances.</p>
-        <ul className="service-features">
-          <li>Toute forme, toute taille</li>
-          <li>Version comptoir (présentoir)</li>
-          <li>Version murale intérieure ou extérieure</li>
-          <li>Rétroéclairage LED basse consommation</li>
-          <li>Fabrication sur mesure en atelier</li>
+        <h2 className="service-title" style={{fontSize: 'clamp(34px,4.2vw,52px)'}}>Logo <span className="gradient-text">lumineux</span></h2>
+        <ul className="service-features-icons">
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1" /><circle cx="17.5" cy="6.5" r="3.5" /><path d="M3 21l7-11 7 11z" /></svg></div>
+            <span className="sfi-text">Toute forme, toute taille</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /><path d="M3.3 7L12 12l8.7-5" /><path d="M12 22V12" /></svg></div>
+            <span className="sfi-text">Version comptoir (présentoir)</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 22V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v18Z" /><path d="M9 22v-4h6v4" /><path d="M8 6h.01" /><path d="M16 6h.01" /><path d="M8 10h.01" /><path d="M16 10h.01" /></svg></div>
+            <span className="sfi-text">Version murale intérieure ou extérieure</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18h6" /><path d="M10 22h4" /><path d="M12 2a6 6 0 0 0-6 6c0 2.5 1.5 4 2.5 5s1.5 2 1.5 3h4c0-1 .5-2 1.5-3s2.5-2.5 2.5-5a6 6 0 0 0-6-6z" /></svg></div>
+            <span className="sfi-text">Rétroéclairage LED, fabrication sur mesure en atelier</span>
+          </li>
         </ul>
         <div className="svc-btn-group">
           <Link className="btn-gradient" href="/devis">Demander un devis →</Link>
@@ -193,15 +247,24 @@ export default function ServicesPage() {
     <div className="container"><div className="service-inner">
       <div className="service-img-wrap reveal"><img loading="lazy" src="/photos-services/service-impression.jpg" alt="Impressions tous formats" style={{objectPosition: 'center 78%'}} /></div>
       <div className="reveal">
-        <span className="service-tag">Impressions tous formats</span>
-        <h2 className="service-title">Bâches, autocollants,<br /><span className="gradient-text">roll-ups & plus</span></h2>
-        <p className="service-desc">Impression numérique tous formats — du petit sticker à la grande bâche. Production dans notre atelier à Aubervilliers, qualité HD sur tous supports.</p>
-        <ul className="service-features">
-          <li>Bâches (chantier, événement, façade)</li>
-          <li>Autocollant mural</li>
-          <li>Étiquettes</li>
-          <li>Vinyles décoratifs</li>
-          <li>Roll-up, kakémono, drapeau plume</li>
+        <h2 className="service-title" style={{fontSize: 'clamp(34px,4.2vw,52px)'}}>Impressions<br /><span className="gradient-text">tous formats</span></h2>
+        <ul className="service-features-icons">
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M21 15l-5-5L5 21" /></svg></div>
+            <span className="sfi-text">Bâches (chantier, événement, façade)</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.83 0l4.59-4.59a2 2 0 0 0 0-2.83z" /><circle cx="7.5" cy="7.5" r="1.5" /></svg></div>
+            <span className="sfi-text">Autocollant mural, étiquettes</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="13.5" cy="6.5" r="1.5" /><circle cx="17.5" cy="10.5" r="1.5" /><circle cx="8.5" cy="7.5" r="1.5" /><circle cx="6.5" cy="12.5" r="1.5" /><path d="M12 21a9 9 0 1 1 9-9c0 1.5-1.5 2-3 2h-2a2 2 0 0 0-2 2c0 1.5-1 3-2 5z" /></svg></div>
+            <span className="sfi-text">Vinyles décoratifs</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" /><line x1="4" y1="22" x2="4" y2="15" /></svg></div>
+            <span className="sfi-text">Roll-up, kakémono, drapeau plume</span>
+          </li>
         </ul>
         <div className="svc-btn-group">
           <Link className="btn-gradient" href="/devis">Demander un devis →</Link>
@@ -216,15 +279,24 @@ export default function ServicesPage() {
     <div className="container"><div className="service-inner">
       <div className="service-img-wrap reveal"><img loading="lazy" src="/photos-services/service-flyers-imprimes.jpg" alt="Petite papeterie" /></div>
       <div className="reveal">
-        <span className="service-tag">Petite papeterie</span>
-        <h2 className="service-title">Flyers & cartes de visite<br /><span className="gradient-text">qui marquent les esprits</span></h2>
-        <p className="service-desc">Flyers, cartes de visite — imprimés en interne à Aubervilliers. Finitions premium, petites et grandes séries, livraison rapide.</p>
-        <ul className="service-features">
-          <li>Flyers A5, A4, formats personnalisés</li>
-          <li>Cartes de visite mat, brillant, soft-touch, dorure</li>
-          <li>Papier qualité supérieure dès 170g</li>
-          <li>Petites et grandes séries</li>
-          <li>Livraison rapide partout en France</li>
+        <h2 className="service-title" style={{fontSize: 'clamp(34px,4.2vw,52px)'}}>Petite <span className="gradient-text">papeterie</span></h2>
+        <ul className="service-features-icons">
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /></svg></div>
+            <span className="sfi-text">Flyers A5, A4, formats personnalisés</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="2" /><line x1="6" y1="9" x2="10" y2="9" /><line x1="6" y1="13" x2="14" y2="13" /></svg></div>
+            <span className="sfi-text">Cartes de visite mat, brillant, soft-touch, dorure</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg></div>
+            <span className="sfi-text">Papier qualité supérieure dès 170g, petites et grandes séries</span>
+          </li>
+          <li className="sfi-item">
+            <div className="sfi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 3h15v13H1z" /><path d="M16 8h4l3 3v5h-7V8z" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg></div>
+            <span className="sfi-text">Livraison rapide partout en France</span>
+          </li>
         </ul>
         <div className="svc-btn-group">
           <Link className="btn-gradient" href="/devis">Demander un devis →</Link>

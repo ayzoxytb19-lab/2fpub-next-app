@@ -40,7 +40,7 @@ export default function FichePlaquesPanneauxPage() {
         <div className="reveal">
           <div className="fiche-kicker"><span className="k-dot"></span>Panneaux · Plaques · Signalétique</div>
           <h1>Plaques & panneaux<br /><span className="gradient-text">tous supports</span></h1>
-          <p className="fiche-hero-desc">Panneaux grand format, panneaux de chantier, plaques transparentes, plaques professionnelles — fabriqués en atelier pour une signalétique durable et impactante.</p>
+          <p className="fiche-hero-desc">Panneaux grand format, plaques pro et transparentes — fabriqués en atelier pour une signalétique durable.</p>
           <div className="fiche-hero-ctas">
             <Link className="btn-primary" href="/devis">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>

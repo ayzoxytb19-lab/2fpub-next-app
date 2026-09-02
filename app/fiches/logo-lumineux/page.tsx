@@ -40,7 +40,7 @@ export default function FicheLogoLumineuxPage() {
         <div className="reveal">
           <div className="fiche-kicker"><span className="k-dot"></span>Comptoir · Mural · Intérieur & extérieur</div>
           <h1>Votre logo en relief<br /><span className="gradient-text">lumineux & impactant</span></h1>
-          <p className="fiche-hero-desc">Logo lumineux en toute forme — pour comptoir, mural, intérieur ou extérieur. Un support de communication premium qui valorise votre marque en toutes circonstances.</p>
+          <p className="fiche-hero-desc">Logo lumineux en toute forme, pour comptoir, mural, intérieur ou extérieur — un support premium qui valorise votre marque.</p>
           <div className="fiche-hero-ctas">
             <Link className="btn-primary" href="/devis">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>

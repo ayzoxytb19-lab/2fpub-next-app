@@ -5,6 +5,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
 <footer className="footer">
+  <div className="footer-giant-wordmark" aria-hidden="true">2F PUBLICITÉ</div>
   <div className="container">
     <div className="footer-grid">
       <div>

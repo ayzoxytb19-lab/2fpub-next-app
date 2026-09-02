@@ -2,19 +2,70 @@
 "use client";
 
 import Link from "next/link";
-import { initGlobalKeydown, initRevealAndCountUps, scrollToSection } from "../lib/interactions";
-import { useEffect } from "react";
+import { initGlobalKeydown, initRevealAndCountUps } from "../lib/interactions";
+import { useEffect, useRef, useState } from "react";
+
+const HERO_SLIDES = [
+  {
+    color: "hcar-blue",
+    tag: "Covering & marquage",
+    title: <>Votre véhicule,<br />votre pub</>,
+    sub: "Covering complet ou semi-covering, conçu et posé par notre atelier, partout en France.",
+    ctaLabel: "Voir nos coverings →",
+    ctaHref: "/fiches/covering",
+    img: "/photos-realisations/vehicule-semi-covering-1.jpg",
+    alt: "Semi covering camionnette",
+    caption: "Semi-covering camionnette",
+  },
+  {
+    color: "hcar-orange",
+    tag: "Signalétique",
+    title: <>Votre enseigne,<br />votre vitrine</>,
+    sub: "Fabrication sur mesure, boîtiers lumineux, pose comprise — visible jour et nuit.",
+    ctaLabel: "Découvrir nos enseignes →",
+    ctaHref: "/fiches/enseignes",
+    img: "/photos-realisations/enseigne-boitier-plexi-1.jpg",
+    alt: "Boîtier plexi lumineux",
+    caption: "Boîtier plexi lumineux",
+  },
+  {
+    color: "hcar-dark",
+    tag: "Textile pro",
+    title: <>Votre équipe,<br />vos couleurs</>,
+    sub: "Broderie, flocage, vêtements personnalisés — toute l'équipe habillée à vos couleurs.",
+    ctaLabel: "Voir le catalogue textile →",
+    ctaHref: "/fiches/textile",
+    img: "/photos-services/service-vetements.jpg",
+    alt: "Vêtements personnalisés",
+    caption: "Vêtements personnalisés",
+  },
+];
 
 export default function HomePage() {
+  const [heroSlide, setHeroSlide] = useState(0);
+  const heroTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const goToHeroSlide = (i: number) => {
+    setHeroSlide((i + HERO_SLIDES.length) % HERO_SLIDES.length);
+  };
+
+  useEffect(() => {
+    heroTimer.current = setInterval(() => {
+      setHeroSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 6000);
+    return () => {
+      if (heroTimer.current) clearInterval(heroTimer.current);
+    };
+  }, []);
 
   useEffect(() => {
     const cleanupReveal = initRevealAndCountUps();
-    
+
     const cleanupKeydown = initGlobalKeydown();
     return () => {
       cleanupReveal();
       cleanupKeydown();
-      
+
     };
   }, []);
 
@@ -22,29 +73,36 @@ export default function HomePage() {
     <div className="page active" id="page-home">
 
 
-  <section className="hero">
-    <div className="hero-bg-blob hero-bg-blob-1"></div>
-    <div className="hero-bg-blob hero-bg-blob-2"></div>
-    <div className="container">
-      <div className="hero-inner">
-        <div className="hero-content">
-          <h1 className="hero-h1"><span className="h1-votre">Votre</span><span className="h1-pub">Publicité</span><span className="h1-line2">au même endroit !</span></h1>
-          <div className="hero-ctas" id="heroCtas">
-            <Link className="btn-primary-lg" href="/devis">Obtenir mon devis gratuit →</Link>
-            <a className="btn-text-link" onClick={(e) => { scrollToSection('realisations') } }>Voir nos réalisations <span>→</span></a>
+  <section className="hcar">
+    <div className="hcar-track">
+      {HERO_SLIDES.map((slide, i) => (
+        <div className={`hcar-slide${i === heroSlide ? " active" : ""}`} key={slide.ctaHref}>
+          <div className={`hcar-panel ${slide.color}`}>
+            <div className="hcar-wm" aria-hidden="true">2F{"\n"}2F</div>
+            <span className="hcar-tag">{slide.tag}</span>
+            <h1 className="hcar-title">{slide.title}</h1>
+            <p className="hcar-sub">{slide.sub}</p>
+            <Link className="hcar-cta" href={slide.ctaHref}>{slide.ctaLabel}</Link>
+            <div className="hcar-nav">
+              <button type="button" className="hcar-arrow" aria-label="Slide précédente" onClick={() => goToHeroSlide(heroSlide - 1)}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+              </button>
+              <button type="button" className="hcar-arrow" aria-label="Slide suivante" onClick={() => goToHeroSlide(heroSlide + 1)}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+              </button>
+            </div>
           </div>
-          <div className="hero-reassurance" id="heroReassurance">
-            <div className="reassurance-item"><div className="r-check"><svg viewBox="0 0 10 9" fill="none"><path d="M1 4.5L3.8 7.5L9 1.5" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg></div>Réponse sous 24h</div>
-            <div className="reassurance-item"><div className="r-check"><svg viewBox="0 0 10 9" fill="none"><path d="M1 4.5L3.8 7.5L9 1.5" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg></div>Devis 100% gratuit</div>
-            <div className="reassurance-item"><div className="r-check"><svg viewBox="0 0 10 9" fill="none"><path d="M1 4.5L3.8 7.5L9 1.5" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg></div>Livraison partout en France</div>
+          <div className="hcar-img">
+            <img loading={i === 0 ? undefined : "lazy"} src={slide.img} alt={slide.alt} />
+            <div className="hcar-dots">
+              {HERO_SLIDES.map((_, di) => (
+                <button type="button" key={di} className={`hcar-dot${di === heroSlide ? " active" : ""}`} aria-label={`Aller à la slide ${di + 1}`} onClick={() => goToHeroSlide(di)} />
+              ))}
+            </div>
+            <div className="hcar-imgcaption">{slide.caption}</div>
           </div>
         </div>
-        <div className="hero-visual">
-          <div className="hero-composition">
-            <img src="/hero-composition.png" alt="2F Publicité — covering, textile, enseignes" />
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   </section>
 
@@ -118,13 +176,6 @@ export default function HomePage() {
   <section className="realisations" id="realisations">
     <div className="container">
       <div className="section-header reveal"><div className="section-tag">✦ Portfolio</div><h2 className="section-title">Nos dernières réalisations</h2><p className="section-sub">Ils ont fait confiance à 2F Publicité</p></div>
-      <div className="filter-row reveal">
-        <button className="ftab active" data-filter="all">Tous</button>
-        <button className="ftab" data-filter="vehicules">Véhicules</button>
-        <button className="ftab" data-filter="textile">Textile</button>
-        <button className="ftab" data-filter="enseignes">Enseignes</button>
-        <button className="ftab" data-filter="stickers">Stickers</button>
-      </div>
       <div className="gallery" id="gallery">
         <div className="g-item" data-cat="vehicules"><div className="g-bg"><img loading="lazy" src="/photos-realisations/vehicule-semi-covering-1.jpg" alt="Semi covering véhicule" /></div><div className="g-overlay"><span className="g-badge">Semi covering camionnette</span></div></div>
         <div className="g-item" data-cat="enseignes"><div className="g-bg"><img loading="lazy" src="/photos-realisations/enseigne-boitier-plexi-1.jpg" alt="Boîtier plexi lumineux" /></div><div className="g-overlay"><span className="g-badge">Signalétique boîtier plexi</span></div></div>
@@ -134,7 +185,7 @@ export default function HomePage() {
         <div className="g-item" data-cat="enseignes"><div className="g-bg"><img loading="lazy" src="/photos-realisations/enseigne-drapeau-lumineux-1.jpg" alt="Drapeau lumineux" /></div><div className="g-overlay"><span className="g-badge">Drapeau lumineux</span></div></div>
       </div>
       <div style={{textAlign: 'center', marginTop: '40px'}} className="reveal">
-        <Link href="/realisations" style={{display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 32px', background: 'var(--gradient)', color: 'white', fontSize: '15px', fontWeight: '700', borderRadius: '100px', cursor: 'pointer', boxShadow: '0 4px 20px rgba(43,106,239,0.35)', transition: 'transform 0.2s,box-shadow 0.2s'}} onMouseOver={(e) => { e.currentTarget.style.transform='translateY(-2px)';e.currentTarget.style.boxShadow='0 8px 28px rgba(43,106,239,0.45)' } } onMouseOut={(e) => { e.currentTarget.style.transform='';e.currentTarget.style.boxShadow='0 4px 20px rgba(43,106,239,0.35)' } }>
+        <Link href="/realisations" style={{display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 32px', background: 'var(--gradient)', color: 'white', fontSize: '15px', fontWeight: '700', borderRadius: '100px', cursor: 'pointer', boxShadow: '0 4px 20px rgba(43,106,239,0.35)', transition: 'transform 0.2s,box-shadow 0.2s', textDecoration: 'none'}} onMouseOver={(e) => { e.currentTarget.style.transform='translateY(-2px)';e.currentTarget.style.boxShadow='0 8px 28px rgba(43,106,239,0.45)' } } onMouseOut={(e) => { e.currentTarget.style.transform='';e.currentTarget.style.boxShadow='0 4px 20px rgba(43,106,239,0.35)' } }>
           Voir toutes nos réalisations →
         </Link>
       </div>

@@ -21,18 +21,6 @@ export default function FicheImpressionPage() {
   return (
     <div className="page active" id="page-fiche-impression">
 
-
-  {/*Breadcrumb */}
-  <div className="fiche-breadcrumb">
-    <div className="container" style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
-      <Link href="/">Accueil</Link>
-      <span className="sep">›</span>
-      <Link href="/services">Nos services</Link>
-      <span className="sep">›</span>
-      <span className="current">Impression & Autocollants</span>
-    </div>
-  </div>
-
   {/*HERO */}
   <section className="fiche-hero">
     <div className="fiche-hero-blob"></div>
@@ -42,7 +30,7 @@ export default function FicheImpressionPage() {
         <div className="reveal">
           <div className="fiche-kicker"><span className="k-dot"></span>Petit format · Stickers & Étiquettes · Grand format</div>
           <h1>Impression numérique<br /><span className="gradient-text">très haute qualité</span></h1>
-          <p className="fiche-hero-desc">Du petit format au grand format jusqu'à 1m58 de large — impression HD sur papier, adhésif, bâche chantier, micro-perforé et plus. Production dans notre atelier à Aubervilliers.</p>
+          <p className="fiche-hero-desc">Du petit format au grand format (jusqu'à 1m58 de large) — impression HD sur tous supports, produite à Aubervilliers.</p>
           <div className="fiche-hero-ctas">
             <Link className="btn-primary" href="/devis">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>
@@ -114,23 +102,23 @@ export default function FicheImpressionPage() {
       <div style={{maxWidth: '680px', marginBottom: '48px'}} className="reveal">
         <div className="section-tag">✦ Petit format</div>
         <h2 style={{marginTop: '16px', fontFamily: '\'Righteous\',sans-serif', fontSize: 'clamp(28px,3.5vw,46px)', fontWeight: '400', letterSpacing: '-0.022em', textTransform: 'uppercase'}}>Impression numérique<br />petit format</h2>
-        <p style={{marginTop: '16px', fontSize: '17px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Impression de haute qualité sur nos machines numériques — pour tous vos supports de format standard. Quantités minimales recommandées, rendu premium dès la 1ère pièce.</p>
+        <p style={{marginTop: '16px', fontSize: '17px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Impression numérique de haute qualité, rendu premium dès la 1ère pièce.</p>
       </div>
       <div style={{display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '24px', marginBottom: '32px'}} className="reveal">
         <div style={{background: 'var(--gray-light)', borderRadius: '20px', padding: '28px', border: '1.5px solid rgba(0,0,0,0.06)'}}>
           <div style={{width: '44px', height: '44px', borderRadius: '12px', background: 'var(--gradient)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px'}}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><polyline points="6 9 6 2 18 2 18 9" /><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><rect x="6" y="14" width="12" height="8" /></svg></div>
           <h3 style={{fontFamily: '\'Righteous\',sans-serif', fontSize: '18px', fontWeight: '400', marginBottom: '8px', textTransform: 'uppercase'}}>Papier qualité supérieure</h3>
-          <p style={{fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Couché mat ou brillant, grammages variés. Rendu des couleurs exceptionnel, net et précis.</p>
+          <p style={{fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Couché mat ou brillant — rendu des couleurs exceptionnel.</p>
         </div>
         <div style={{background: 'var(--gray-light)', borderRadius: '20px', padding: '28px', border: '1.5px solid rgba(0,0,0,0.06)'}}>
           <div style={{width: '44px', height: '44px', borderRadius: '12px', background: 'var(--gradient)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px'}}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg></div>
           <h3 style={{fontFamily: '\'Righteous\',sans-serif', fontSize: '18px', fontWeight: '400', marginBottom: '8px', textTransform: 'uppercase'}}>Vinyle adhésif</h3>
-          <p style={{fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Impression sur vinyle adhésif repositionnable ou permanent — idéal pour signalétiques intérieures, décorations murales et habillages.</p>
+          <p style={{fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Repositionnable ou permanent — signalétique, déco murale, habillage.</p>
         </div>
         <div style={{background: 'var(--gray-light)', borderRadius: '20px', padding: '28px', border: '1.5px solid rgba(0,0,0,0.06)'}}>
           <div style={{width: '44px', height: '44px', borderRadius: '12px', background: 'var(--gradient)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px'}}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><line x1="20" y1="4" x2="8.12" y2="15.88" /><line x1="14.47" y1="14.48" x2="20" y2="20" /><line x1="8.12" y1="8.12" x2="12" y2="12" /></svg></div>
           <h3 style={{fontFamily: '\'Righteous\',sans-serif', fontSize: '18px', fontWeight: '400', marginBottom: '8px', textTransform: 'uppercase'}}>Découpe numérique</h3>
-          <p style={{fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Traceur de découpe au millimètre — toutes formes, contours personnalisés, impression + découpe en une seule étape.</p>
+          <p style={{fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Toutes formes, contours personnalisés — impression + découpe en une étape.</p>
         </div>
       </div>
       <div style={{padding: '20px 32px', background: 'white', borderRadius: '16px', border: '1.5px solid rgba(0,0,0,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap'}} className="reveal">
@@ -146,7 +134,7 @@ export default function FicheImpressionPage() {
       <div style={{maxWidth: '680px', marginBottom: '48px'}} className="reveal">
         <div className="section-tag">✦ Grand format</div>
         <h2 style={{marginTop: '16px', fontFamily: '\'Righteous\',sans-serif', fontSize: 'clamp(28px,3.5vw,46px)', fontWeight: '400', letterSpacing: '-0.022em', textTransform: 'uppercase'}}>Jusqu'à 1m58 de large,<br />longueur indéfinie</h2>
-        <p style={{marginTop: '16px', fontSize: '17px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Impression grand format très haute qualité — affiches, bâches chantier, banderoles, roll-ups, micro-perforé, toile. Sur mesure, tous supports certifiés norme M1 pour les ERP.</p>
+        <p style={{marginTop: '16px', fontSize: '17px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Affiches, bâches, roll-ups, micro-perforé — sur mesure, supports certifiés norme M1.</p>
       </div>
       <div style={{display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '24px'}} className="reveal">
         <div style={{background: 'white', borderRadius: '20px', padding: '28px', border: '1.5px solid rgba(0,0,0,0.07)'}}>
@@ -188,7 +176,7 @@ export default function FicheImpressionPage() {
       <div style={{maxWidth: '680px', marginBottom: '48px'}} className="reveal">
         <div className="section-tag">✦ Stickers & Étiquettes</div>
         <h2 style={{marginTop: '16px', fontFamily: '\'Righteous\',sans-serif', fontSize: 'clamp(28px,3.5vw,46px)', fontWeight: '400', letterSpacing: '-0.022em', textTransform: 'uppercase'}}>Choisissez votre quantité<br />pour voir les prix</h2>
-        <p style={{marginTop: '16px', fontSize: '17px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Format de base : 6×6 cm (rond) ou 10×5 cm (rectangulaire). Découpe numérique au millimètre — toutes formes possibles, contour du logo. Sur devis pour format personnalisé.</p>
+        <p style={{marginTop: '16px', fontSize: '17px', color: 'var(--text-secondary)', lineHeight: '1.65'}}>Format de base 6×6 cm ou 10×5 cm — découpe au millimètre, toutes formes.</p>
       </div>
 
       <div style={{display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '36px'}} id="impQtyBtns">
@@ -291,10 +279,10 @@ export default function FicheImpressionPage() {
       </div>
       <div className="process-row">
         <div className="process-line"></div>
-        <div className="p-step reveal delay-1"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="12" y1="18" x2="12" y2="12" /><line x1="9" y1="15" x2="15" y2="15" /></svg></div><span className="p-num">1</span></div><h3 className="p-title">Envoyez votre fichier</h3><p className="p-desc">Logo, visuel, texte — on accepte AI, PDF vectoriel, PNG haute résolution.</p></div>
-        <div className="p-step reveal delay-2"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></div><span className="p-num">2</span></div><h3 className="p-title">Validation du BAT</h3><p className="p-desc">On vous envoie un bon à tirer à valider avant toute mise en production.</p></div>
-        <div className="p-step reveal delay-3"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 6 2 18 2 18 9" /><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><rect x="6" y="14" width="12" height="8" /></svg></div><span className="p-num">3</span></div><h3 className="p-title">Impression en atelier</h3><p className="p-desc">Production sur nos traceurs HD à Aubervilliers. Découpe numérique précise au mm.</p></div>
-        <div className="p-step reveal delay-4"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10" /><path d="M1 6h22v4H1z" /><path d="M12 22V6" /></svg></div><span className="p-num">4</span></div><h3 className="p-title">Retrait ou livraison</h3><p className="p-desc">Récupérez à l'atelier ou optez pour la livraison partout en France.</p></div>
+        <div className="p-step reveal delay-1"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="12" y1="18" x2="12" y2="12" /><line x1="9" y1="15" x2="15" y2="15" /></svg></div><span className="p-num">1</span></div><h3 className="p-title">Envoyez votre fichier</h3><p className="p-desc">AI, PDF vectoriel ou PNG haute résolution.</p></div>
+        <div className="p-step reveal delay-2"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></div><span className="p-num">2</span></div><h3 className="p-title">Validation du BAT</h3><p className="p-desc">Bon à tirer à valider avant mise en production.</p></div>
+        <div className="p-step reveal delay-3"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 6 2 18 2 18 9" /><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><rect x="6" y="14" width="12" height="8" /></svg></div><span className="p-num">3</span></div><h3 className="p-title">Impression en atelier</h3><p className="p-desc">Traceurs HD, découpe précise au mm.</p></div>
+        <div className="p-step reveal delay-4"><div className="p-circle"><div className="p-circle-inner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10" /><path d="M1 6h22v4H1z" /><path d="M12 22V6" /></svg></div><span className="p-num">4</span></div><h3 className="p-title">Retrait ou livraison</h3><p className="p-desc">À l'atelier ou livré partout en France.</p></div>
       </div>
     </div>
   </section>
@@ -319,24 +307,17 @@ export default function FicheImpressionPage() {
           </div>
           <div className="fiche-faq-item">
             <button className="fiche-faq-q" onClick={(e) => { toggleFaq(e.currentTarget) } }>
-              <span className="fiche-faq-q-text">Puis-je commander un format personnalisé ?</span>
-              <span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span>
-            </button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Oui. Les tarifs affichés correspondent aux formats standards (6×6 cm et 10×5 cm). Pour un format sur mesure — toute forme, toute dimension — contactez-nous pour un devis personnalisé.</div></div>
-          </div>
-          <div className="fiche-faq-item">
-            <button className="fiche-faq-q" onClick={(e) => { toggleFaq(e.currentTarget) } }>
               <span className="fiche-faq-q-text">Quel est le délai de production ?</span>
               <span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span>
             </button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Comptez 3 à 5 jours ouvrés après validation du BAT pour les étiquettes et stickers. Pour les grands formats (affiches, bâches), compter 5 à 7 jours. Besoin urgent ? Contactez-nous directement.</div></div>
+            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">3 à 5 jours ouvrés pour stickers et étiquettes, 5 à 7 jours pour les grands formats. Besoin urgent ? Contactez-nous.</div></div>
           </div>
           <div className="fiche-faq-item">
             <button className="fiche-faq-q" onClick={(e) => { toggleFaq(e.currentTarget) } }>
               <span className="fiche-faq-q-text">Les stickers résistent-ils à l'extérieur ?</span>
               <span className="fiche-faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span>
             </button>
-            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Oui, nos vinyles sont traités pour résister aux UV, à la pluie et aux variations de température. La Classique + protection offre une durabilité accrue pour une utilisation extérieure intensive.</div></div>
+            <div className="fiche-faq-a"><div className="fiche-faq-a-inner">Oui, nos vinyles résistent aux UV, à la pluie et aux écarts de température. La Classique + protection tient mieux en extérieur intensif.</div></div>
           </div>
         </div>
       </div>

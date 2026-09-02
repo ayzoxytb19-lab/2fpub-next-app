@@ -58,10 +58,10 @@ export default function AboutPage() {
         <h2 className="section-title">25 ans d'expertise,<br />des résultats concrets</h2>
       </div>
       <div className="stats-row-4">
-        <div className="stat-box-sm reveal delay-1"><span className="stat-num" data-target="500" data-prefix="+">+500</span><div className="stat-name">Clients B2B</div><div className="stat-detail">entreprises accompagnées</div></div>
-        <div className="stat-box-sm reveal delay-2"><span className="stat-num" data-target="25" data-suffix=" ANS">25 ANS</span><div className="stat-name">D'expérience</div><div className="stat-detail">depuis 1999</div></div>
-        <div className="stat-box-sm reveal delay-3"><span className="stat-num" data-target="4">4</span><div className="stat-name">Expertises</div><div className="stat-detail">textile, véhicule, enseigne, print</div></div>
-        <div className="stat-box-sm reveal delay-4"><span className="stat-num" data-target="24" data-suffix="h">24h</span><div className="stat-name">Délai de réponse</div><div className="stat-detail">pour votre devis</div></div>
+        <div className="stat-box-sm reveal delay-1"><span className="stat-num" data-target="25" data-suffix="+">25+</span><div className="stat-name">Ans d'expérience</div></div>
+        <div className="stat-box-sm reveal delay-2"><span className="stat-num" data-target="300" data-suffix="m²">300m²</span><div className="stat-name">D'ateliers</div></div>
+        <div className="stat-box-sm reveal delay-3"><span className="stat-num" data-target="10" data-suffix="k+">10k+</span><div className="stat-name">Projets réalisés</div></div>
+        <div className="stat-box-sm reveal delay-4"><span className="stat-num" data-target="100" data-suffix="%">100%</span><div className="stat-name">Fabrication France</div></div>
       </div>
     </div>
   </section>
