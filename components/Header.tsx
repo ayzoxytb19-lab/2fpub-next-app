@@ -11,70 +11,54 @@ const NAV_LINKS: { href: string; page: string; label: string }[] = [
   { href: "/devis", page: "devis", label: "Contact" },
 ];
 
-const SERVICES_MENU: { href: string; label: string; icon: React.ReactNode; subcategories: string[] }[] = [
+const SERVICES_MENU: { href: string; label: string; icon: string; subcategories: string[] }[] = [
   {
     href: "/fiches/covering",
     label: "Marquage véhicule",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 13l2-5a2 2 0 0 1 2-1.3h10a2 2 0 0 1 2 1.3l2 5" /><path d="M3 13h18v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" /><circle cx="7.5" cy="17.5" r="1.5" /><circle cx="16.5" cy="17.5" r="1.5" /></svg>
-    ),
-    subcategories: [],
+    icon: "/Asset Navbar/Logos_produits/sports-car_67994.svg",
+    subcategories: ["Adhésif découpe", "Adhésif & impression", "3 panneaux", "Semi-covering"],
   },
   {
     href: "/fiches/textile",
     label: "Vêtements personnalisés",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8h1.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" /></svg>
-    ),
-    subcategories: [],
+    icon: "/Asset Navbar/Logos_produits/shirt_1023978.svg",
+    subcategories: ["Broderie", "Flocage"],
   },
   {
     href: "/fiches/enseignes",
     label: "Enseignes",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18h6" /><path d="M10 22h4" /><path d="M12 2a6 6 0 0 0-6 6c0 2.5 1.5 4 2.5 5s1.5 2 1.5 3h4c0-1 .5-2 1.5-3s2.5-2.5 2.5-5a6 6 0 0 0-6-6z" /></svg>
-    ),
-    subcategories: [],
+    icon: "/Asset Navbar/Logos_produits/direction_4830565.svg",
+    subcategories: ["Ajouré (creusé)", "PVC rétroéclairé", "Alu rétroéclairé", "Relief PMMA", "Relief PMMA + alu", "Boîtier plexi", "Boîtier plexi (côtés opaques)"],
   },
   {
     href: "/fiches/vitrophanies",
     label: "Vitrophanies",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 6l8.5 8.5" /><circle cx="4.5" cy="4.5" r="2.5" /><circle cx="4.5" cy="19.5" r="2.5" /><path d="M14.5 9.5L20 4" /><path d="M6 18l14-14" /></svg>
-    ),
-    subcategories: ["Stickers personnalisés", "Stickers muraux personnalisés", "Stickers vitrine personnalisés", "Stickers sol"],
+    icon: "/Asset Navbar/Logos_produits/nicotine-patch_7433589.svg",
+    subcategories: ["Autocollant classique", "Film confidentiel", "Film décoratif", "Découpe adhésive"],
   },
   {
     href: "/fiches/plaques-panneaux",
     label: "Plaques & Panneaux",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M21 15l-5-5L5 21" /></svg>
-    ),
-    subcategories: [],
+    icon: "/Asset Navbar/Logos_produits/pharmacy_2212179.svg",
+    subcategories: ["Panneaux grand format", "Panneaux de chantier", "Plaques transparentes", "Plaques professionnelles"],
   },
   {
     href: "/fiches/logo-lumineux",
     label: "Logo lumineux",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1" /><circle cx="17.5" cy="6.5" r="3.5" /><path d="M3 21l7-11 7 11z" /></svg>
-    ),
-    subcategories: [],
+    icon: "/Asset Navbar/Logos_produits/sun_2893114.svg",
+    subcategories: ["Version comptoir", "Version murale"],
   },
   {
     href: "/fiches/impression",
     label: "Impressions",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M21 15l-5-5L5 21" /></svg>
-    ),
-    subcategories: [],
+    icon: "/Asset Navbar/Logos_produits/stickers_1025477.svg",
+    subcategories: ["Papier qualité supérieure", "Vinyle adhésif", "Découpe numérique", "Affiches & posters", "Bâches chantier & banderoles", "Micro-perforé", "Roll-up & kakémonos", "Drapeau plume"],
   },
   {
     href: "/fiches/flyers",
     label: "Petite papeterie",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /></svg>
-    ),
-    subcategories: [],
+    icon: "/Asset Navbar/Logos_produits/profile_8200202.svg",
+    subcategories: ["Flyers", "Cartes de visite", "Dépliant 2 volets", "Dépliant 3 volets", "Brochure agrafée"],
   },
 ];
 
@@ -91,16 +75,30 @@ export default function Header() {
   const pathname = usePathname();
   const activePage = pageForPath(pathname || "/");
   const [scrolled, setScrolled] = useState(false);
+  const [hoverTop, setHoverTop] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [activeSubcat, setActiveSubcat] = useState<string | null>(null);
   const servicesCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hoverTopCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const openServices = () => {
     if (servicesCloseTimer.current) clearTimeout(servicesCloseTimer.current);
     setServicesOpen(true);
   };
   const closeServicesDelayed = () => {
-    servicesCloseTimer.current = setTimeout(() => setServicesOpen(false), 200);
+    servicesCloseTimer.current = setTimeout(() => {
+      setServicesOpen(false);
+      setActiveSubcat(null);
+    }, 200);
+  };
+
+  const openHoverTop = () => {
+    if (hoverTopCloseTimer.current) clearTimeout(hoverTopCloseTimer.current);
+    setHoverTop(true);
+  };
+  const closeHoverTopDelayed = () => {
+    hoverTopCloseTimer.current = setTimeout(() => setHoverTop(false), 250);
   };
 
   useEffect(() => {
@@ -111,14 +109,28 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
+    const onMouseMove = (e: MouseEvent) => {
+      if (e.clientY < 12) openHoverTop();
+    };
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    return () => window.removeEventListener("mousemove", onMouseMove);
+  }, []);
+
+  useEffect(() => {
     setMobileOpen(false);
     setServicesOpen(false);
+    setActiveSubcat(null);
     if (servicesCloseTimer.current) clearTimeout(servicesCloseTimer.current);
   }, [pathname]);
 
   return (
     <>
-      <nav className={`navbar${scrolled ? " scrolled" : ""}${activePage === "about" ? " navbar-on-dark" : ""}`} id="navbar">
+      <nav
+        className={`navbar${scrolled || hoverTop ? " scrolled" : ""}${activePage === "about" && !scrolled && !hoverTop ? " navbar-on-dark" : ""}`}
+        id="navbar"
+        onMouseEnter={openHoverTop}
+        onMouseLeave={closeHoverTopDelayed}
+      >
         <div className="container">
           <div className="navbar-inner">
             <Link className="navbar-logo" href="/">
@@ -140,28 +152,6 @@ export default function Header() {
                     >
                       {l.label}
                     </Link>
-                    <div
-                      className={`services-dropdown${servicesOpen ? " open" : ""}`}
-                      onMouseEnter={openServices}
-                      onMouseLeave={closeServicesDelayed}
-                    >
-                      <div className="services-dropdown-columns">
-                        {SERVICES_MENU.map((s) => (
-                          <Link key={s.href} href={s.href} className="sdc-col-title">
-                            <span className="sdc-icon">{s.icon}</span>
-                            <span>{s.label}</span>
-                          </Link>
-                        ))}
-                        <div className="sdc-full-divider"></div>
-                        {SERVICES_MENU.map((s) => (
-                          <ul key={s.href} className="sdc-col-list">
-                            {s.subcategories.map((sub) => (
-                              <li key={sub}>{sub}</li>
-                            ))}
-                          </ul>
-                        ))}
-                      </div>
-                    </div>
                   </li>
                 ) : (
                   <li key={l.href}>
@@ -176,9 +166,53 @@ export default function Header() {
                 )
               )}
             </ul>
-            <Link className="btn-nav-cta" href="/devis">
-              Devis gratuit →
-            </Link>
+            <div
+              className={`services-dropdown${servicesOpen ? " open" : ""}`}
+              onMouseEnter={openServices}
+              onMouseLeave={closeServicesDelayed}
+            >
+              <div className="services-dropdown-card">
+                <div className="services-dropdown-columns">
+                  {SERVICES_MENU.map((s) => (
+                    <div key={s.href} className="sdc-col-wrap">
+                      <button
+                        type="button"
+                        className={`sdc-col-title${activeSubcat === s.href ? " active" : ""}`}
+                        aria-label={s.label}
+                        onClick={() => setActiveSubcat((cur) => (cur === s.href ? null : s.href))}
+                      >
+                        <span
+                          className="sdc-icon"
+                          style={{ ["--sdc-mask" as any]: `url("${s.icon}")` }}
+                        />
+                        <span className="sdc-label">{s.label}</span>
+                      </button>
+                      <div className={`sdc-subpanel${activeSubcat === s.href ? " open" : ""}`}>
+                        <div className="sdc-subpanel-inner">
+                          <Link href={s.href} className="sdc-sublink sdc-sublink-all">
+                            Tout voir : {s.label} →
+                          </Link>
+                          {s.subcategories.map((sub) => (
+                            <Link key={sub} href={s.href} className="sdc-sublink">
+                              {sub}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="navbar-cta-group">
+              {/*TODO: remplacer "#" par l'URL de la boutique en ligne une fois disponible */}
+              <a className="btn-nav-shop" href="#">
+                Boutique en ligne
+              </a>
+              <Link className="btn-nav-cta" href="/devis">
+                Devis gratuit →
+              </Link>
+            </div>
             <button
               className={`hamburger${mobileOpen ? " open" : ""}`}
               id="hamburger"

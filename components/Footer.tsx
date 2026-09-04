@@ -40,6 +40,7 @@ export default function Footer() {
         <ul className="f-links">
           <li><Link href="/a-propos">Qui sommes-nous</Link></li>
           <li><Link href="/realisations">Nos réalisations</Link></li>
+          <li><Link href="/blog">Blog</Link></li>
           <li><Link href="/">Accueil</Link></li>
           <li><Link href="/devis">Contact</Link></li>
         </ul>

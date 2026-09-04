@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import FloatingWidgets from "../components/FloatingWidgets";
 
 export const metadata: Metadata = {
   title: "2F Publicité — Communication visuelle B2B",
@@ -10,6 +7,10 @@ export const metadata: Metadata = {
     "2F Publicité : vêtements professionnels, covering véhicules, enseignes lumineuses, impression. Devis gratuit sous 24h.",
 };
 
+// Layout minimal, commun à TOUT le site (pages publiques ET /admin) : juste
+// le squelette html/body. Le header/footer/widget WhatsApp du site vitrine
+// vivent dans app/(site)/layout.tsx — /admin ne les affiche pas, c'est une
+// interface volontairement distincte.
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -17,12 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body suppressHydrationWarning>
-        <Header />
-        {children}
-        <Footer />
-        <FloatingWidgets />
-      </body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

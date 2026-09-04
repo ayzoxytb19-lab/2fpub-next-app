@@ -214,72 +214,6 @@ export function initCarousel() {
   };
 }
 
-// ══ RÉALISATIONS FILTER + MODAL ══
-export function initReaFilter() {
-  const tabs = document.querySelectorAll<HTMLElement>(".rea-tab");
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      tabs.forEach((t) => t.classList.remove("active"));
-      tab.classList.add("active");
-      const f = tab.dataset.rfilter;
-      document.querySelectorAll<HTMLElement>(".rea-card").forEach((card) => {
-        card.classList.toggle("hidden", f !== "all" && card.dataset.rcat !== f);
-      });
-    });
-  });
-
-  document.querySelectorAll<HTMLElement>(".rea-card").forEach((card) => {
-    card.addEventListener("click", () => openReaModal(card));
-  });
-
-  const reaBar = document.getElementById("reaFilterBar");
-  const reaGridSection = document.getElementById("reaGridSection");
-  function updateReaBarVisibility() {
-    if (!reaBar || !reaGridSection) return;
-    const top = reaGridSection.getBoundingClientRect().top;
-    const bottom = reaGridSection.getBoundingClientRect().bottom;
-    reaBar.classList.toggle("rea-bar-visible", top <= 72 && bottom > 72);
-  }
-  window.addEventListener("scroll", updateReaBarVisibility, { passive: true });
-  updateReaBarVisibility();
-}
-
-export function openReaModal(card: HTMLElement) {
-  const title = card.querySelector(".rea-project-title")?.textContent || "";
-  const badge = card.querySelector(".rea-cat-badge")?.textContent || "";
-  const bgEl = card.querySelector<HTMLElement>(".rea-bg");
-
-  const imgEl = bgEl?.querySelector("img");
-  const modalImg = document.getElementById("reaModalImg");
-  if (!modalImg) return;
-  if (imgEl) {
-    modalImg.innerHTML = `<img loading="lazy" class="rea-modal-img-inner" src="${imgEl.getAttribute("src")}" alt="${imgEl.getAttribute("alt")}">`;
-  } else {
-    const bg = bgEl ? bgEl.style.background : "#13152b";
-    const emoji = bgEl?.textContent?.trim() || "";
-    modalImg.innerHTML = `<div class="rea-modal-img-bg" style="background:${bg}">${emoji}</div>`;
-  }
-
-  const badgeEl = document.getElementById("reaModalBadge");
-  const titleEl = document.getElementById("reaModalTitle");
-  const descEl = document.getElementById("reaModalDesc");
-  if (badgeEl) badgeEl.textContent = badge;
-  if (titleEl) titleEl.textContent = title;
-  if (descEl) descEl.textContent = card.dataset.desc || "";
-
-  const modal = document.getElementById("reaModal");
-  if (modal) modal.classList.add("open");
-  document.body.style.overflow = "hidden";
-}
-
-export function closeReaModal(e?: any) {
-  const modal = document.getElementById("reaModal");
-  if (!modal) return;
-  if (e && e.target !== modal && !e.target?.closest?.(".rea-modal-close")) return;
-  modal.classList.remove("open");
-  document.body.style.overflow = "";
-}
-
 // ══ SERVICES TABS ══
 export function setActiveTab(id: string) {
   document.querySelectorAll<HTMLElement>("#page-services .svc-tab").forEach((t) => {
@@ -639,7 +573,6 @@ export async function handleRgpdSubmit(e: React.FormEvent<HTMLFormElement>) {
 export function initGlobalKeydown() {
   const onKey = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
-      closeReaModal({ target: document.getElementById("reaModal") });
       closeCatalogueGate();
       document.querySelectorAll(".modal-overlay.open").forEach((m) => {
         m.classList.remove("open");
