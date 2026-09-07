@@ -22,15 +22,6 @@ export default function FicheVitrophaniesPage() {
     <div className="page active" id="page-fiche-vitrophanies">
 
 
-  <div className="fiche-breadcrumb">
-    <div className="container" style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
-      <Link href="/">Accueil</Link>
-      <span className="sep">›</span>
-      <Link href="/services">Nos services</Link>
-      <span className="sep">›</span>
-      <span className="current">Vitrophanies</span>
-    </div>
-  </div>
 
   <section className="fiche-hero">
     <div className="fiche-hero-blob"></div>

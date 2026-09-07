@@ -22,15 +22,6 @@ export default function FicheLogoLumineuxPage() {
     <div className="page active" id="page-fiche-logo-lumineux">
 
 
-  <div className="fiche-breadcrumb">
-    <div className="container" style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
-      <Link href="/">Accueil</Link>
-      <span className="sep">›</span>
-      <Link href="/services">Nos services</Link>
-      <span className="sep">›</span>
-      <span className="current">Logo lumineux</span>
-    </div>
-  </div>
 
   <section className="fiche-hero">
     <div className="fiche-hero-blob"></div>

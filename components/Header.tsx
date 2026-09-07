@@ -82,6 +82,26 @@ export default function Header() {
   const servicesCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hoverTopCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Carte du méga-menu Services actuellement "élargie" au survol. Piloté en
+  // JS (et non en pur CSS :hover) avec un léger débounce : sans ça, dès que
+  // la carte grandit sous le curseur, la souris se retrouve sur la carte
+  // voisine (qui rétrécit) et les deux cartes se remettent à s'échanger le
+  // survol en boucle très rapide. Le délai laisse la géométrie se stabiliser
+  // avant de changer de carte active.
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const hoveredCardTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const scheduleHoverCard = (href: string) => {
+    if (hoveredCardTimer.current) clearTimeout(hoveredCardTimer.current);
+    if (hoveredCard === href) return;
+    hoveredCardTimer.current = setTimeout(() => setHoveredCard(href), 120);
+  };
+  const scheduleUnhoverCard = (href: string) => {
+    if (hoveredCardTimer.current) clearTimeout(hoveredCardTimer.current);
+    hoveredCardTimer.current = setTimeout(() => {
+      setHoveredCard((cur) => (cur === href ? null : cur));
+    }, 120);
+  };
+
   const openServices = () => {
     if (servicesCloseTimer.current) clearTimeout(servicesCloseTimer.current);
     setServicesOpen(true);
@@ -174,7 +194,12 @@ export default function Header() {
               <div className="services-dropdown-card">
                 <div className="services-dropdown-columns">
                   {SERVICES_MENU.map((s) => (
-                    <div key={s.href} className="sdc-col-wrap">
+                    <div
+                      key={s.href}
+                      className={`sdc-col-wrap${hoveredCard === s.href ? " sdc-hovered" : ""}`}
+                      onMouseEnter={() => scheduleHoverCard(s.href)}
+                      onMouseLeave={() => scheduleUnhoverCard(s.href)}
+                    >
                       <button
                         type="button"
                         className={`sdc-col-title${activeSubcat === s.href ? " active" : ""}`}

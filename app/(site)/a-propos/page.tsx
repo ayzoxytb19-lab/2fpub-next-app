@@ -162,7 +162,7 @@ export default function AboutPage() {
           </defs>
         </svg>
         <blockquote style={{fontFamily: '\'Red Hat Display\',sans-serif', fontSize: 'clamp(18px,2.4vw,26px)', fontWeight: '500', lineHeight: '1.6', letterSpacing: '-0.01em', color: 'var(--text-main)', margin: '0 0 36px', fontStyle: 'italic'}}>
-          « On a monté cet atelier parce qu'on en avait marre de sous-traiter et de perdre le contrôle sur les délais. Aujourd'hui on fabrique tout nous-mêmes, à Aubervilliers, et ça change tout&nbsp;: on tient nos promesses.&nbsp;»
+          « Ce n'est pas juste une agence de publicité, c'est aussi les ateliers. Nous produisons nous-mêmes pour être en mesure de proposer des produits de qualité. Cette qualité fait qu'aujourd'hui nous n'avons pas de commercial&nbsp;: ce sont nos clients qui parlent de nous.&nbsp;»
         </blockquote>
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px'}}>
           <div style={{width: '40px', height: '2px', background: 'var(--gradient)', borderRadius: '2px', marginBottom: '12px'}}></div>
