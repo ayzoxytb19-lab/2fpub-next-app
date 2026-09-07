@@ -196,7 +196,7 @@ export default function Header() {
                   {SERVICES_MENU.map((s) => (
                     <div
                       key={s.href}
-                      className={`sdc-col-wrap${hoveredCard === s.href ? " sdc-hovered" : ""}`}
+                      className={`sdc-col-wrap${hoveredCard === s.href || activeSubcat === s.href ? " sdc-hovered" : ""}`}
                       onMouseEnter={() => scheduleHoverCard(s.href)}
                       onMouseLeave={() => scheduleUnhoverCard(s.href)}
                     >
