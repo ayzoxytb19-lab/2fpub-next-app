@@ -8,7 +8,7 @@ import { getSql, ensureSchema } from "@/lib/db";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Blog — 2F Publicité",
+  title: { absolute: "Blog — 2F Publicité" },
   description:
     "Conseils, actualités et réalisations de 2F Publicité : covering véhicules, enseignes lumineuses, textile pro et impression grand format.",
   alternates: { canonical: "/blog" },

@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 // donc chaque page/Server Action protégée revérifie elle-même (voir
 // lib/admin/dal.ts).
 export const metadata: Metadata = {
-  title: "Espace admin — 2F Publicité",
+  title: { absolute: "Espace admin — 2F Publicité" },
   robots: {
     index: false,
     follow: false,

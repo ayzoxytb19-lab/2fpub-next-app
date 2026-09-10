@@ -42,10 +42,10 @@ export async function generateMetadata({
   } catch {
     // Base indisponible : on retombe sur des métadonnées génériques.
   }
-  if (!post) return { title: "Article — 2F Publicité" };
+  if (!post) return { title: { absolute: "Article — 2F Publicité" } };
 
   return {
-    title: `${post.title} — Blog 2F Publicité`,
+    title: { absolute: `${post.title} — Blog 2F Publicité` },
     description: post.excerpt || undefined,
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {
