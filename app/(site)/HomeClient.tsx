@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { initGlobalKeydown, initRevealAndCountUps } from "../../lib/interactions";
 import { useEffect, useRef, useState } from "react";
 import RealisationsGallery from "@/components/RealisationsGallery";
@@ -46,6 +47,7 @@ const HERO_SLIDES = [
 export default function HomeClient({ realisations }: { realisations: RealisationSummary[] }) {
   const [heroSlide, setHeroSlide] = useState(0);
   const heroTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [showScrollHint, setShowScrollHint] = useState(false);
 
   const goToHeroSlide = (i: number) => {
     setHeroSlide((i + HERO_SLIDES.length) % HERO_SLIDES.length);
@@ -68,6 +70,29 @@ export default function HomeClient({ realisations }: { realisations: Realisation
       cleanupReveal();
       cleanupKeydown();
 
+    };
+  }, []);
+
+  // Invite au scroll : apparaît 3s après l'arrivée sur la page, disparaît
+  // définitivement dès le premier scroll (jamais réaffichée après coup).
+  useEffect(() => {
+    const showTimer = setTimeout(() => setShowScrollHint(true), 3000);
+
+    function handleFirstScroll() {
+      setShowScrollHint(false);
+      clearTimeout(showTimer);
+      document.removeEventListener("scroll", handleFirstScroll, true);
+    }
+    // Capture (et non bubble) : le scroll peut se produire sur `body` plutôt
+    // que sur `window` selon les navigateurs avec ViewTransition activé, et
+    // les événements "scroll" sur un élément ne remontent pas (pas de
+    // bubbling) — la phase de capture sur `document` les intercepte quand
+    // même, quel que soit l'élément qui défile réellement.
+    document.addEventListener("scroll", handleFirstScroll, { capture: true, passive: true });
+
+    return () => {
+      clearTimeout(showTimer);
+      document.removeEventListener("scroll", handleFirstScroll, true);
     };
   }, []);
 
@@ -95,7 +120,7 @@ export default function HomeClient({ realisations }: { realisations: Realisation
             </div>
           </div>
           <div className="hcar-img">
-            <img loading={i === 0 ? undefined : "lazy"} src={slide.img} alt={slide.alt} />
+            <Image src={slide.img} alt={slide.alt} fill priority={i === 0} sizes="(max-width: 900px) 100vw, 60vw" />
             <div className="hcar-dots">
               {HERO_SLIDES.map((_, di) => (
                 <button type="button" key={di} className={`hcar-dot${di === heroSlide ? " active" : ""}`} aria-label={`Aller à la slide ${di + 1}`} onClick={() => goToHeroSlide(di)} />
@@ -106,6 +131,18 @@ export default function HomeClient({ realisations }: { realisations: Realisation
         </div>
       ))}
     </div>
+    <button
+      type="button"
+      className={`scroll-hint${showScrollHint ? " visible" : ""}`}
+      aria-hidden={!showScrollHint}
+      tabIndex={showScrollHint ? 0 : -1}
+      onClick={() => window.scrollBy({ top: window.innerHeight * 0.8, behavior: "smooth" })}
+    >
+      <span className="scroll-hint-text">Découvrez le reste du site</span>
+      <svg className="scroll-hint-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </button>
   </section>
 
   <section className="social-proof reveal">
@@ -182,37 +219,27 @@ export default function HomeClient({ realisations }: { realisations: Realisation
       {/*row 1 → left */}
       <div className="avis-row">
         <div className="avis-row-track fwd">
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Flocage réalisé sur mes ambulances. Le rendu vraiment propre, professionnel et bien visible sur la route. Au top !"</p><div className="avis-mini-author">M. M. · Transport sanitaire · Aubervilliers</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Impression d'étiquettes rapide et de très bonne qualité, classiques et holographiques. Je recommande."</p><div className="avis-mini-author">Mme M. · Étiquetage · Saint-Denis</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Super travail. Je recommande au niveau graphisme tout autant que la pose de lettrage sur mon utilitaire."</p><div className="avis-mini-author">M. Z. · Artisan · Bobigny</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Flocage d'un de nos utilitaires pour notre entreprise de déménagement. Équipe rapide et sérieuse."</p><div className="avis-mini-author">M. N. · Déménagement · Bondy</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"J'ai fait confiance à 2F Pub pour la réalisation de plaques alu pour la façade de mon entreprise et je ne regrette rien !"</p><div className="avis-mini-author">M. E. · Entreprise · Saint-Ouen</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Je suis passée par 2F pour installer des panneaux publicitaires pour notre garage. Travail rapide et sérieux, de la conception jusqu'à la pose."</p><div className="avis-mini-author">Mme I. · Garage automobile · Villepinte</div></div>
+          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Atelier sérieux, on sent le vrai savoir-faire. Le devis est arrivé en 24h et la pose s'est faite le weekend pour ne pas fermer la boutique. Je recommande sans hésiter."</p><div className="avis-mini-author">Marie C. · Commerce · Pantin</div></div>
+          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Covering complet sur nos 4 véhicules. Qualité impeccable, tient depuis 3 ans même après de nombreux lavages haute pression. On revient cette année pour les vêtements."</p><div className="avis-mini-author">Julien D. · Artisan · Aubervilliers</div></div>
+          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Notre enseigne LED a été livrée et posée en une semaine. Le résultat est spectaculaire. Nos clients nous trouvent beaucoup plus facilement depuis. Un investissement qui vaut le coup."</p><div className="avis-mini-author">Sofia K. · Restauration · Saint-Denis</div></div>
+          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"On a fait marquer toute notre flotte de 12 camions. Délais respectés, rendu professionnel. L'équipe a été disponible du devis jusqu'à la pose. Partenaire de confiance."</p><div className="avis-mini-author">Thomas B. · Transport · Bobigny</div></div>
           {/*duplicate for seamless loop */}
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Flocage réalisé sur mes ambulances. Le rendu vraiment propre, professionnel et bien visible sur la route. Au top !"</p><div className="avis-mini-author">M. M. · Transport sanitaire · Aubervilliers</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Impression d'étiquettes rapide et de très bonne qualité, classiques et holographiques. Je recommande."</p><div className="avis-mini-author">Mme M. · Étiquetage · Saint-Denis</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Super travail. Je recommande au niveau graphisme tout autant que la pose de lettrage sur mon utilitaire."</p><div className="avis-mini-author">M. Z. · Artisan · Bobigny</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Flocage d'un de nos utilitaires pour notre entreprise de déménagement. Équipe rapide et sérieuse."</p><div className="avis-mini-author">M. N. · Déménagement · Bondy</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"J'ai fait confiance à 2F Pub pour la réalisation de plaques alu pour la façade de mon entreprise et je ne regrette rien !"</p><div className="avis-mini-author">M. E. · Entreprise · Saint-Ouen</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Je suis passée par 2F pour installer des panneaux publicitaires pour notre garage. Travail rapide et sérieux, de la conception jusqu'à la pose."</p><div className="avis-mini-author">Mme I. · Garage automobile · Villepinte</div></div>
+          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Atelier sérieux, on sent le vrai savoir-faire. Le devis est arrivé en 24h et la pose s'est faite le weekend pour ne pas fermer la boutique. Je recommande sans hésiter."</p><div className="avis-mini-author">Marie C. · Commerce · Pantin</div></div>
+          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Covering complet sur nos 4 véhicules. Qualité impeccable, tient depuis 3 ans même après de nombreux lavages haute pression. On revient cette année pour les vêtements."</p><div className="avis-mini-author">Julien D. · Artisan · Aubervilliers</div></div>
+          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Notre enseigne LED a été livrée et posée en une semaine. Le résultat est spectaculaire. Nos clients nous trouvent beaucoup plus facilement depuis. Un investissement qui vaut le coup."</p><div className="avis-mini-author">Sofia K. · Restauration · Saint-Denis</div></div>
+          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"On a fait marquer toute notre flotte de 12 camions. Délais respectés, rendu professionnel. L'équipe a été disponible du devis jusqu'à la pose. Partenaire de confiance."</p><div className="avis-mini-author">Thomas B. · Transport · Bobigny</div></div>
         </div>
       </div>
       {/*row 2 ← right (reverse) */}
       <div className="avis-row">
         <div className="avis-row-track rev">
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Très sérieux. Merci pour les vêtements et le panneau publicitaire."</p><div className="avis-mini-author">M. D. · Commerce · Clichy</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Flocage sur mon utilitaire. Service sérieux et rapide."</p><div className="avis-mini-author">Mme S. · Artisan · Drancy</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"J'ai réalisé chez 2F l'intégralité des vêtements brodés pour l'entreprise familiale, ainsi que le marquage des pulls, et le travail effectué est impeccable !"</p><div className="avis-mini-author">Mme L. · Entreprise familiale · Pantin</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Je fais faire tous mes camions chez eux, ainsi que mes panneaux de chantier. Équipe très professionnelle et réactive."</p><div className="avis-mini-author">M. J. · BTP · Montreuil</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Super marquage sur mon utilitaire. La publicité sur le véhicule est ressortie comme sur la maquette. Je recommande."</p><div className="avis-mini-author">M. S. · Commerce · Aulnay-sous-Bois</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Équipe au top, à l'écoute, multiples services proposés le tout réalisé avec professionnalisme. Merci."</p><div className="avis-mini-author">M. T. · Commerce · Romainville</div></div>
+          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Décoration de notre agence avec des vitrophanies sur mesure. Rendu élégant, professionnel et durable. 2F a su conseiller sur les matériaux et les finitions. Très satisfaite."</p><div className="avis-mini-author">Amira L. · Immobilier · Saint-Ouen</div></div>
+          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"50 polos brodés pour notre équipe chantier, rendu impeccable et livraison rapide. Le logo est parfaitement reproduit, les couleurs fidèles. On repassera commande sans hésitation."</p><div className="avis-mini-author">Pierre M. · BTP · Montreuil</div></div>
+          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Roll-ups et kakémonos pour notre congrès annuel, produits et livrés en 48h chrono. Qualité d'impression remarquable, les visuels ressortent vraiment bien. Merci à toute l'équipe 2F !"</p><div className="avis-mini-author">Céline R. · Événementiel · Paris 19e</div></div>
           {/*duplicate */}
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Très sérieux. Merci pour les vêtements et le panneau publicitaire."</p><div className="avis-mini-author">M. D. · Commerce · Clichy</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Flocage sur mon utilitaire. Service sérieux et rapide."</p><div className="avis-mini-author">Mme S. · Artisan · Drancy</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"J'ai réalisé chez 2F l'intégralité des vêtements brodés pour l'entreprise familiale, ainsi que le marquage des pulls, et le travail effectué est impeccable !"</p><div className="avis-mini-author">Mme L. · Entreprise familiale · Pantin</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Je fais faire tous mes camions chez eux, ainsi que mes panneaux de chantier. Équipe très professionnelle et réactive."</p><div className="avis-mini-author">M. J. · BTP · Montreuil</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Super marquage sur mon utilitaire. La publicité sur le véhicule est ressortie comme sur la maquette. Je recommande."</p><div className="avis-mini-author">M. S. · Commerce · Aulnay-sous-Bois</div></div>
-          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Équipe au top, à l'écoute, multiples services proposés le tout réalisé avec professionnalisme. Merci."</p><div className="avis-mini-author">M. T. · Commerce · Romainville</div></div>
+          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Décoration de notre agence avec des vitrophanies sur mesure. Rendu élégant, professionnel et durable. 2F a su conseiller sur les matériaux et les finitions. Très satisfaite."</p><div className="avis-mini-author">Amira L. · Immobilier · Saint-Ouen</div></div>
+          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"50 polos brodés pour notre équipe chantier, rendu impeccable et livraison rapide. Le logo est parfaitement reproduit, les couleurs fidèles. On repassera commande sans hésitation."</p><div className="avis-mini-author">Pierre M. · BTP · Montreuil</div></div>
+          <div className="avis-mini-card"><div className="avis-mini-stars">★★★★★</div><p className="avis-mini-text">"Roll-ups et kakémonos pour notre congrès annuel, produits et livrés en 48h chrono. Qualité d'impression remarquable, les visuels ressortent vraiment bien. Merci à toute l'équipe 2F !"</p><div className="avis-mini-author">Céline R. · Événementiel · Paris 19e</div></div>
         </div>
       </div>
     </div>
@@ -220,10 +247,10 @@ export default function HomeClient({ realisations }: { realisations: Realisation
     <div className="avis-overlay"></div>
     {/*FOREGROUND */}
     <div className="avis-fg">
-      <h2>Ils nous font confiance,<br />des retours concrets.</h2>
+      <h2>Ils nous ont fait confiance.</h2>
       <div className="avis-hero">
         <div className="avis-logo-wrap">
-          <img loading="lazy" src="/logo-2f-3d.png" alt="2F Publicité" />
+          <Image loading="lazy" src="/logo-2f-3d.png" alt="2F Publicité" width={120} height={120} />
         </div>
         <div className="avis-score-block">
           <span className="avis-score-num">4,9/5</span>
@@ -260,7 +287,7 @@ export default function HomeClient({ realisations }: { realisations: Realisation
       <div className="cta-card reveal">
         <div className="cta-card-content">
           <h2 className="cta-card-title">Un projet ?<br />Parlons-en autour d'un café.</h2>
-          <p className="cta-card-sub">Passez à l'atelier au 217 av. Jean Jaurès, ou envoyez-nous un plan / une photo — on revient vers vous avec un devis chiffré sous 48h.</p>
+          <p className="cta-card-sub">Passez à l'atelier au 217 av. Jean Jaurès, ou envoyez-nous un plan / une photo — on revient vers vous avec un devis chiffré sous 24h.</p>
         </div>
         <div className="cta-card-btns">
           <a href="tel:0143522424" className="btn-cta-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z" /></svg> 01 43 52 24 24</a>

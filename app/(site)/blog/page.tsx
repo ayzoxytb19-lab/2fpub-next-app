@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Blog — 2F Publicité",
   description:
     "Conseils, actualités et réalisations de 2F Publicité : covering véhicules, enseignes lumineuses, textile pro et impression grand format.",
+  alternates: { canonical: "/blog" },
 };
 
 const PAGE_SIZE = 9;
@@ -92,7 +93,7 @@ export default async function BlogPage({
                   <Link key={post.id} href={`/blog/${post.slug}`} className="blog-card">
                     <div className="blog-card-image">
                       {post.cover_image_url ? (
-                        <img loading="lazy" src={post.cover_image_url} alt="" />
+                        <img loading="lazy" src={post.cover_image_url} alt={post.title} />
                       ) : (
                         <div className="blog-card-image-fallback" aria-hidden="true">
                           2F

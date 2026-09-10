@@ -4,12 +4,28 @@ import { useState } from "react";
 
 type ImageItem = { url: string; alt: string };
 
+// Génère un alt par défaut à partir du titre SEO du projet et de sa
+// catégorie — pas d'appel IA, juste un gabarit texte appliqué à chaque
+// import. `index` (0-based) sert à distinguer les photos d'un même projet ;
+// la première (vignette) n'a pas de suffixe.
+function buildDefaultAlt(seoTitle: string, categoryLabel: string, index: number): string {
+  const base = [seoTitle.trim(), categoryLabel.trim()].filter(Boolean).join(" — ");
+  if (!base) return "";
+  return index === 0 ? base : `${base} (vue ${index + 1})`;
+}
+
 export default function RealisationImagesUpload({
   name,
   defaultValue,
+  seoTitle = "",
+  categoryLabel = "",
 }: {
   name: string;
   defaultValue?: ImageItem[];
+  /** Titre SEO du projet, utilisé pour pré-remplir l'alt de chaque photo importée. */
+  seoTitle?: string;
+  /** Libellé de la catégorie choisie, ajouté à l'alt généré. */
+  categoryLabel?: string;
 }) {
   const [images, setImages] = useState<ImageItem[]>(defaultValue ?? []);
   const [uploading, setUploading] = useState(false);
@@ -35,12 +51,25 @@ export default function RealisationImagesUpload({
           return { url: data.url, alt: "" };
         })
       );
-      setImages((prev) => [...prev, ...uploaded]);
+      setImages((prev) => {
+        // Le suffixe "(vue N)" est basé sur la position finale dans la liste
+        // (vignette + carrousel), pas seulement sur ce lot importé.
+        const startIndex = prev.length;
+        const withAlt = uploaded.map((img, i) => ({
+          ...img,
+          alt: buildDefaultAlt(seoTitle, categoryLabel, startIndex + i),
+        }));
+        return [...prev, ...withAlt];
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Échec de l'envoi des images.");
     } finally {
       setUploading(false);
     }
+  }
+
+  function updateAlt(index: number, alt: string) {
+    setImages((prev) => prev.map((img, i) => (i === index ? { ...img, alt } : img)));
   }
 
   function removeAt(index: number) {
@@ -75,6 +104,14 @@ export default function RealisationImagesUpload({
               <span className="admin-images-item-label">
                 {index === 0 ? "Vignette (carte)" : `Photo ${index + 1}`}
               </span>
+              <input
+                type="text"
+                className="form-control admin-images-item-alt"
+                value={image.alt}
+                onChange={(e) => updateAlt(index, e.target.value)}
+                placeholder="Texte alternatif (SEO) de cette photo"
+                aria-label={`Texte alternatif de la photo ${index + 1}`}
+              />
               <div className="admin-images-item-actions">
                 <button type="button" onClick={() => moveUp(index)} disabled={index === 0} title="Monter">
                   ↑

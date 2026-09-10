@@ -23,7 +23,8 @@ export type ActivityAction =
   | "user.activate"
   | "user.deactivate"
   | "media.upload"
-  | "settings.geo_update";
+  | "settings.geo_update"
+  | "submission.received";
 
 type LogInput = {
   actorId: number | null;
@@ -49,7 +50,7 @@ export async function logActivity(input: LogInput): Promise<void> {
         ${input.targetType ?? null},
         ${input.targetId ?? null},
         ${input.targetLabel ?? null},
-        ${input.metadata ? JSON.stringify(input.metadata) : null}
+        ${input.metadata ? sql.json(JSON.parse(JSON.stringify(input.metadata))) : null}
       )
     `;
   } catch (err) {
@@ -80,4 +81,5 @@ export const ACTIVITY_LABELS: Record<ActivityAction, string> = {
   "user.deactivate": "Désactivation d'un compte",
   "media.upload": "Ajout d'une photo",
   "settings.geo_update": "Modification de la configuration IA (GEO)",
+  "submission.received": "Nouvelle soumission de formulaire reçue",
 };

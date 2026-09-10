@@ -345,8 +345,13 @@ export function closeCatalogueGate() {
   document.body.style.overflow = "";
 }
 
-const CATALOGUE_FORMSPREE_ID = "VOTRE_CATALOGUE_FORM_ID_ICI";
-
+// Soumission envoyée à app/forms/submit/route.ts (même backend que devis/RGPD
+// — voir plus bas). Pas de déclenchement de téléchargement automatique ici :
+// le fichier /2F_CATALOGUE.pdf n'existe pas dans public/ à ce jour (aucun
+// PDF n'a été fourni) — le message affiché après capture de l'email ne
+// promet donc pas un fichier reçu "instantanément", seulement que la demande
+// est enregistrée. Ne PAS réintroduire un lien de téléchargement tant que
+// le vrai fichier n'a pas été ajouté à public/.
 export async function submitCatalogueGate() {
   const emailInput = document.getElementById("catalogueGateEmail") as HTMLInputElement | null;
   const email = emailInput?.value.trim() || "";
@@ -356,31 +361,50 @@ export async function submitCatalogueGate() {
     return;
   }
   if (errEl) errEl.style.display = "none";
-  const leads = JSON.parse(localStorage.getItem("2fpub_catalogue_leads") || "[]");
-  leads.push({ email, date: new Date().toISOString() });
-  localStorage.setItem("2fpub_catalogue_leads", JSON.stringify(leads));
-  if (!CATALOGUE_FORMSPREE_ID.includes("VOTRE_CATALOGUE_FORM_ID")) {
-    try {
-      await fetch("https://formspree.io/f/" + CATALOGUE_FORMSPREE_ID, {
-        method: "POST",
-        body: JSON.stringify({ email, source: "catalogue-gate", date: new Date().toISOString() }),
-        headers: { Accept: "application/json", "Content-Type": "application/json" },
-      });
-    } catch (err) {
-      console.error("[catalogueGate] Erreur réseau lors de la soumission:", err);
+
+  const form = document.getElementById("catalogueGateForm") as HTMLFormElement | null;
+  const submitBtn = form?.querySelector("button[type=submit]") as HTMLButtonElement | null;
+  const originalText = submitBtn?.textContent || "";
+  if (submitBtn) {
+    submitBtn.textContent = "Envoi en cours…";
+    submitBtn.disabled = true;
+  }
+
+  try {
+    const body = new FormData();
+    body.set("form_type", "catalogue");
+    body.set("email", email);
+    const honeypot = form?.querySelector<HTMLInputElement>('[name="societe_web"]');
+    body.set("societe_web", honeypot?.value || "");
+
+    const res = await fetch("/forms/submit", { method: "POST", body, headers: { Accept: "application/json" } });
+    if (res.ok) {
+      if (form) form.style.display = "none";
+      const success = document.getElementById("catalogueGateSuccess");
+      if (success) success.style.display = "block";
+      setTimeout(closeCatalogueGate, 3200);
+    } else {
+      console.error("[catalogueGate] Échec de soumission, statut:", res.status);
+      if (errEl) {
+        errEl.textContent = "Une erreur est survenue, réessayez ou écrivez-nous à contact@2fpub.fr.";
+        errEl.style.display = "block";
+      }
+      if (submitBtn) {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    }
+  } catch {
+    console.error("[catalogueGate] Erreur réseau — la demande n'a pas été transmise.");
+    if (errEl) {
+      errEl.textContent = "Connexion impossible. Écrivez-nous directement à contact@2fpub.fr.";
+      errEl.style.display = "block";
+    }
+    if (submitBtn) {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
     }
   }
-  const form = document.getElementById("catalogueGateForm");
-  const success = document.getElementById("catalogueGateSuccess");
-  if (form) form.style.display = "none";
-  if (success) success.style.display = "block";
-  const a = document.createElement("a");
-  a.href = "/2F_CATALOGUE.pdf";
-  a.download = "2F_CATALOGUE.pdf";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  setTimeout(closeCatalogueGate, 2800);
 }
 
 // ══ IMPRESSION NAV BAR ══
@@ -481,19 +505,16 @@ export function syncHeroBadges() {
 }
 
 // ══ DEVIS FORM ══
+// Soumission envoyée à app/forms/submit/route.ts (base Postgres existante,
+// pas de service externe — voir lib/forms/data.ts). Ne JAMAIS afficher le
+// message de succès si la requête échoue : erreur serveur → invite à
+// réessayer ; échec réseau total → invite à contacter 2F PUB directement.
 export async function handleDevisSubmit(e: React.FormEvent<HTMLFormElement>) {
   e.preventDefault();
   const form = document.getElementById("devisForm") as HTMLFormElement | null;
   if (!form) return;
   const btn = form.querySelector("button[type=submit]") as HTMLButtonElement | null;
   const originalText = btn?.textContent || "";
-  if (form.action.includes("VOTRE_FORM_ID_ICI")) {
-    const wrap = document.getElementById("formWrap");
-    const success = document.getElementById("successMsg");
-    if (wrap) wrap.style.display = "none";
-    if (success) success.style.display = "block";
-    return;
-  }
   if (btn) {
     btn.textContent = "Envoi en cours…";
     btn.disabled = true;
@@ -510,14 +531,18 @@ export async function handleDevisSubmit(e: React.FormEvent<HTMLFormElement>) {
       if (wrap) wrap.style.display = "none";
       if (success) success.style.display = "block";
     } else {
-      console.error("[devisForm] Échec de soumission:", res.status, res.statusText);
+      console.error("[devisForm] Échec de soumission, statut:", res.status);
       if (btn) {
         btn.textContent = "Erreur — réessayez";
         btn.disabled = false;
       }
     }
-  } catch (err) {
-    console.error("[devisForm] Erreur réseau lors de la soumission:", err);
+  } catch {
+    console.error("[devisForm] Erreur réseau — la demande n'a pas été transmise.");
+    const wrap = document.getElementById("formWrap");
+    const unavailable = document.getElementById("unavailableMsg");
+    if (wrap) wrap.style.display = "none";
+    if (unavailable) unavailable.style.display = "block";
     if (btn) {
       btn.textContent = originalText;
       btn.disabled = false;
@@ -526,18 +551,12 @@ export async function handleDevisSubmit(e: React.FormEvent<HTMLFormElement>) {
 }
 
 // ══ RGPD FORM ══
+// Même règle et même backend que handleDevisSubmit ci-dessus.
 export async function handleRgpdSubmit(e: React.FormEvent<HTMLFormElement>) {
   e.preventDefault();
   const form = document.getElementById("rgpdForm") as HTMLFormElement | null;
   const btn = document.getElementById("rgpdBtn") as HTMLButtonElement | null;
   if (!form) return;
-  if (form.action.includes("VOTRE_RGPD_FORM_ID")) {
-    const wrap = document.getElementById("rgpdFormWrap");
-    const success = document.getElementById("rgpdSuccessMsg");
-    if (wrap) wrap.style.display = "none";
-    if (success) success.style.display = "block";
-    return;
-  }
   if (btn) {
     btn.textContent = "Envoi en cours…";
     btn.disabled = true;
@@ -554,14 +573,18 @@ export async function handleRgpdSubmit(e: React.FormEvent<HTMLFormElement>) {
       if (wrap) wrap.style.display = "none";
       if (success) success.style.display = "block";
     } else {
-      console.error("[rgpdForm] Échec de soumission:", res.status, res.statusText);
+      console.error("[rgpdForm] Échec de soumission, statut:", res.status);
       if (btn) {
         btn.textContent = "Erreur — réessayez";
         btn.disabled = false;
       }
     }
-  } catch (err) {
-    console.error("[rgpdForm] Erreur réseau lors de la soumission:", err);
+  } catch {
+    console.error("[rgpdForm] Erreur réseau — la demande n'a pas été transmise.");
+    const wrap = document.getElementById("rgpdFormWrap");
+    const unavailable = document.getElementById("rgpdUnavailableMsg");
+    if (wrap) wrap.style.display = "none";
+    if (unavailable) unavailable.style.display = "block";
     if (btn) {
       btn.textContent = "Envoyer ma demande →";
       btn.disabled = false;

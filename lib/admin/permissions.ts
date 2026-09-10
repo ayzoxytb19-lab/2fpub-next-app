@@ -16,6 +16,7 @@ export const PERMISSION_KEYS = [
   "users.manage",
   "logs.view",
   "settings.manage",
+  "submissions.view",
 ] as const;
 
 export type PermissionKey = (typeof PERMISSION_KEYS)[number];
@@ -33,6 +34,7 @@ export const PERMISSION_LABELS: Record<PermissionKey, string> = {
   "users.manage": "Gérer les comptes et leurs permissions",
   "logs.view": "Voir le journal d'activité",
   "settings.manage": "Gérer la configuration IA (GEO / llms.txt)",
+  "submissions.view": "Voir les demandes de devis, RGPD et catalogue reçues",
 };
 
 export function isPermissionKey(value: string): value is PermissionKey {

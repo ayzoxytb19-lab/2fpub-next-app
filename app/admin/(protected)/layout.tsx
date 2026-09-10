@@ -1,5 +1,6 @@
 import { getCurrentUser, hasPermission } from "@/lib/admin/dal";
 import AdminSidebar from "@/components/admin/AdminSidebar";
+import { countNewSubmissions } from "@/lib/forms/data";
 
 // Enveloppe tout /admin sauf /admin/login et /admin/setup (route groups).
 // getCurrentUser() redirige déjà vers /admin/login si la session est
@@ -8,6 +9,17 @@ import AdminSidebar from "@/components/admin/AdminSidebar";
 // n'étant pas suffisante pour les Server Actions et Route Handlers.
 export default async function AdminProtectedLayout({ children }: { children: React.ReactNode }) {
   const user = await getCurrentUser();
+  const canViewSubmissions = hasPermission(user, "submissions.view");
+  // Best-effort : si le compteur échoue (base indisponible), ne bloque pas
+  // l'affichage de l'admin pour autant.
+  let newSubmissionsCount = 0;
+  if (canViewSubmissions) {
+    try {
+      newSubmissionsCount = await countNewSubmissions();
+    } catch (err) {
+      console.error("Impossible de compter les nouvelles soumissions :", err);
+    }
+  }
 
   return (
     <div className="admin-shell">
@@ -17,6 +29,8 @@ export default async function AdminProtectedLayout({ children }: { children: Rea
         canManageUsers={hasPermission(user, "users.manage")}
         canViewLogs={hasPermission(user, "logs.view")}
         canManageSettings={hasPermission(user, "settings.manage")}
+        canViewSubmissions={canViewSubmissions}
+        newSubmissionsCount={newSubmissionsCount}
       />
       <main className="admin-content">{children}</main>
     </div>

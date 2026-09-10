@@ -234,6 +234,12 @@
     .hcar-arrow { width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.3); display:flex; align-items:center; justify-content:center; color:#fff; cursor:pointer; transition:background 0.2s; }
     .hcar-arrow:hover { background:rgba(255,255,255,0.26); }
     .hcar-arrow svg { width:18px; height:18px; }
+    .scroll-hint { position:absolute; left:50%; bottom:28px; z-index:4; display:flex; flex-direction:column; align-items:center; gap:6px; background:none; border:none; padding:6px 10px; color:#fff; cursor:pointer; opacity:0; visibility:hidden; transform:translate(-50%,8px); transition:opacity 0.5s ease,transform 0.5s ease,visibility 0.5s; }
+    .scroll-hint.visible { opacity:1; visibility:visible; transform:translate(-50%,0); }
+    .scroll-hint-text { font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; text-shadow:0 1px 6px rgba(0,0,0,0.35); }
+    .scroll-hint-arrow { width:20px; height:20px; animation:scroll-hint-bounce 1.6s ease-in-out infinite; }
+    @keyframes scroll-hint-bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(6px); } }
+    @media (prefers-reduced-motion:reduce) { .scroll-hint-arrow { animation:none; } }
     @media (max-width:820px) {
       .hcar-track { height:auto; }
       .hcar-slide { position:relative; display:none; grid-template-columns:1fr; }
@@ -1135,8 +1141,9 @@
 .admin-images-list { list-style:none; display:flex; flex-direction:column; gap:8px; margin:0 0 14px; padding:0; }
 .admin-images-item { display:flex; align-items:center; gap:12px; background:var(--gray-light); border-radius:10px; padding:8px 12px; }
 .admin-images-item img { width:52px; height:52px; object-fit:cover; border-radius:8px; flex-shrink:0; }
-.admin-images-item-label { flex:1; font-size:13px; color:var(--text-secondary); font-weight:600; }
-.admin-images-item-actions { display:flex; gap:6px; }
+.admin-images-item-label { flex-shrink:0; width:100px; font-size:13px; color:var(--text-secondary); font-weight:600; }
+.admin-images-item-alt { flex:1; min-width:0; padding:6px 10px; font-size:13px; }
+.admin-images-item-actions { display:flex; gap:6px; flex-shrink:0; }
 .admin-images-item-actions button { background:white; border:1px solid rgba(0,0,0,0.1); border-radius:7px; width:28px; height:28px; font-size:13px; cursor:pointer; color:var(--text-main); }
 .admin-images-item-actions button:disabled { opacity:0.35; cursor:default; }
 .admin-images-item-actions button.admin-delete-link { color:#B42318; }

@@ -28,10 +28,10 @@ export default function Footer() {
       <div>
         <h4 className="f-col-title">Nos services</h4>
         <ul className="f-links">
-          <li><Link href="/services">Covering véhicule</Link></li>
-          <li><Link href="/services">Textile pro</Link></li>
-          <li><Link href="/services">Enseignes</Link></li>
-          <li><Link href="/services">Impression</Link></li>
+          <li><Link href="/fiches/covering">Covering véhicule</Link></li>
+          <li><Link href="/fiches/textile">Textile pro</Link></li>
+          <li><Link href="/fiches/enseignes">Enseignes</Link></li>
+          <li><Link href="/fiches/impression">Impression</Link></li>
           <li><Link href="/devis">Devis gratuit</Link></li>
         </ul>
       </div>
@@ -64,7 +64,7 @@ export default function Footer() {
   </div>
   <div className="footer-bottom">
     <div className="container" style={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', width: '100%'}}>
-      <p>© 2026 2F Publicité — Tous droits réservés | Agence de communication visuelle B2B</p>
+      <p>© {new Date().getFullYear()} 2F Publicité — Tous droits réservés | Agence de communication visuelle B2B</p>
       <div style={{display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap'}}>
         <Link href="/mentions-legales" style={{fontSize: '12px', color: 'rgba(255,255,255,0.3)', cursor: 'pointer', textDecoration: 'none'}} onMouseOver={(e) => { e.currentTarget.style.color='rgba(255,255,255,0.6)' } } onMouseOut={(e) => { e.currentTarget.style.color='rgba(255,255,255,0.3)' } }>Mentions légales</Link>
         <Link href="/confidentialite" style={{fontSize: '12px', color: 'rgba(255,255,255,0.3)', cursor: 'pointer', textDecoration: 'none'}} onMouseOver={(e) => { e.currentTarget.style.color='rgba(255,255,255,0.6)' } } onMouseOut={(e) => { e.currentTarget.style.color='rgba(255,255,255,0.3)' } }>Confidentialité</Link>

@@ -11,6 +11,7 @@ import {
   LogoutIcon,
   LogsIcon,
   RealisationsIcon,
+  SubmissionsIcon,
   UsersIcon,
 } from "@/components/admin/AdminIcons";
 
@@ -22,12 +23,16 @@ export default function AdminSidebar({
   canManageUsers,
   canViewLogs,
   canManageSettings,
+  canViewSubmissions,
+  newSubmissionsCount,
 }: {
   displayName: string;
   isOwner: boolean;
   canManageUsers: boolean;
   canViewLogs: boolean;
   canManageSettings: boolean;
+  canViewSubmissions: boolean;
+  newSubmissionsCount: number;
 }) {
   const pathname = usePathname();
 
@@ -36,6 +41,13 @@ export default function AdminSidebar({
     { href: "/admin/posts", label: "Articles", icon: <ArticlesIcon /> },
     { href: "/admin/realisations", label: "Réalisations", icon: <RealisationsIcon /> },
   ];
+  if (canViewSubmissions) {
+    items.push({
+      href: "/admin/soumissions",
+      label: newSubmissionsCount > 0 ? `Soumissions (${newSubmissionsCount})` : "Soumissions",
+      icon: <SubmissionsIcon />,
+    });
+  }
   if (canManageUsers) items.push({ href: "/admin/users", label: "Comptes", icon: <UsersIcon /> });
   if (canViewLogs) items.push({ href: "/admin/logs", label: "Journal", icon: <LogsIcon /> });
   if (canManageSettings) items.push({ href: "/admin/geo", label: "Config IA", icon: <GeoIcon /> });

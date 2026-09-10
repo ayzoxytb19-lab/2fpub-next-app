@@ -136,7 +136,14 @@ export default function Header() {
     return () => window.removeEventListener("mousemove", onMouseMove);
   }, []);
 
+  // Fermeture du menu mobile / méga-menu au changement de route. Reste un
+  // useEffect (plutôt qu'un ajustement pendant le rendu) car il faut aussi
+  // nettoyer un ref (servicesCloseTimer.current), et React interdit de lire
+  // ou écrire un ref pendant le rendu (règle react-hooks/refs) — un effet
+  // est donc l'endroit correct ici malgré l'avertissement set-state-in-effect
+  // ci-dessous, volontairement désactivé pour ce cas précis.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMobileOpen(false);
     setServicesOpen(false);
     setActiveSubcat(null);
@@ -202,17 +209,20 @@ export default function Header() {
                     >
                       <button
                         type="button"
-                        className={`sdc-col-title${activeSubcat === s.href ? " active" : ""}`}
+                        className={`sdc-col-title${hoveredCard === s.href || activeSubcat === s.href ? " active" : ""}`}
                         aria-label={s.label}
                         onClick={() => setActiveSubcat((cur) => (cur === s.href ? null : s.href))}
                       >
                         <span
                           className="sdc-icon"
-                          style={{ ["--sdc-mask" as any]: `url("${s.icon}")` }}
+                          style={{ "--sdc-mask": `url("${s.icon}")` } as React.CSSProperties}
                         />
                         <span className="sdc-label">{s.label}</span>
                       </button>
-                      <div className={`sdc-subpanel${activeSubcat === s.href ? " open" : ""}`}>
+                      {/* Ouvert au survol (hoveredCard, debounce via scheduleHoverCard/
+                          scheduleUnhoverCard) — le clic reste utilisable en secours pour
+                          le tactile et le clavier, qui n'ont pas de :hover. */}
+                      <div className={`sdc-subpanel${hoveredCard === s.href || activeSubcat === s.href ? " open" : ""}`}>
                         <div className="sdc-subpanel-inner">
                           <Link href={s.href} className="sdc-sublink sdc-sublink-all">
                             Tout voir : {s.label} →

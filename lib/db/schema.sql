@@ -1,7 +1,9 @@
--- Référence lisible du schéma. La source de vérité exécutée au runtime est
--- `ensureSchema()` dans lib/db/index.ts (CREATE TABLE IF NOT EXISTS, donc
--- sans danger à réexécuter). Ce fichier n'est pas exécuté automatiquement,
--- il documente juste la structure pour s'y retrouver.
+-- Référence lisible du schéma. Depuis le 10/09/2026, la source de vérité
+-- EXÉCUTÉE est `scripts/migrate.mjs` (lancé uniquement via `npm run
+-- db:migrate`, jamais automatiquement — voir docs/MIGRATIONS_DB.md).
+-- `ensureSchema()` dans lib/db/index.ts ne touche plus la base. Ce fichier
+-- n'est pas exécuté automatiquement, il documente juste la structure pour
+-- s'y retrouver — à garder synchronisé avec scripts/migrate.mjs à la main.
 
 CREATE TABLE IF NOT EXISTS admin_users (
   id SERIAL PRIMARY KEY,
@@ -72,9 +74,22 @@ CREATE TABLE IF NOT EXISTS site_settings (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
+-- Soumissions des formulaires publics (devis, RGPD, catalogue) — voir
+-- lib/forms/data.ts et app/forms/submit/route.ts. `payload` peut contenir
+-- des données personnelles (nom/email/message) : volontairement absentes
+-- d'activity_logs, qui ne doit recevoir aucune donnée personnelle.
+CREATE TABLE IF NOT EXISTS form_submissions (
+  id SERIAL PRIMARY KEY,
+  form_type TEXT NOT NULL CHECK (form_type IN ('devis', 'rgpd', 'catalogue')),
+  payload JSONB NOT NULL,
+  status TEXT NOT NULL DEFAULT 'new' CHECK (status IN ('new', 'read')),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
 CREATE INDEX IF NOT EXISTS idx_posts_status ON posts(status);
 CREATE INDEX IF NOT EXISTS idx_posts_published_at ON posts(published_at DESC);
 CREATE INDEX IF NOT EXISTS idx_activity_logs_created_at ON activity_logs(created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_realisations_status ON realisations(status);
 CREATE INDEX IF NOT EXISTS idx_realisations_category ON realisations(category);
 CREATE INDEX IF NOT EXISTS idx_realisation_images_realisation_id ON realisation_images(realisation_id);
+CREATE INDEX IF NOT EXISTS idx_form_submissions_created_at ON form_submissions(created_at DESC);

@@ -3,7 +3,7 @@
 import { useActionState, useState } from "react";
 import RealisationImagesUpload from "@/components/admin/RealisationImagesUpload";
 import { slugify } from "@/lib/slug";
-import { REALISATION_CATEGORIES } from "@/lib/realisations/categories";
+import { REALISATION_CATEGORIES, realisationCategoryLabel } from "@/lib/realisations/categories";
 import type { RealisationFormState } from "@/lib/admin/actions/realisations";
 import { generateRealisationFromTopic } from "@/lib/admin/actions/ai";
 
@@ -156,7 +156,16 @@ export default function RealisationForm({
 
       <div className="form-group">
         <label>Photos</label>
-        <RealisationImagesUpload name="images" defaultValue={defaultValues?.images} />
+        <RealisationImagesUpload
+          name="images"
+          defaultValue={defaultValues?.images}
+          seoTitle={seoTitle}
+          categoryLabel={category ? realisationCategoryLabel(category) : ""}
+        />
+        <p className="admin-field-hint">
+          Le texte alternatif de chaque nouvelle photo est pré-rempli à partir du titre SEO et de la catégorie
+          ci-dessus — modifiez-le si besoin, il reste éditable.
+        </p>
       </div>
 
       <div className="form-group">

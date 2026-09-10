@@ -12,6 +12,7 @@ const STATIC_ROUTES = [
   "/blog",
   "/mentions-legales",
   "/confidentialite",
+  "/suppression-donnees",
   "/plan-du-site",
   "/fiches/covering",
   "/fiches/enseignes",
@@ -34,9 +35,14 @@ async function getPublishedSlugsWithDates(): Promise<{ slug: string; updatedAt: 
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // Pas de `lastModified` sur les routes statiques : on ne connaît pas de
+  // date de dernière modification de contenu fiable pour ces pages (le
+  // système de fichiers ne l'enregistre pas), et `new Date()` produirait une
+  // fausse date de fraîcheur à chaque régénération du sitemap. Voir
+  // docs/ENVIRONNEMENT_ET_DEPLOIEMENT.md. Les articles de blog, eux, ont une
+  // vraie date (`updated_at` en base) — voir plus bas.
   const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((path) => ({
     url: `${SITE_URL}${path}`,
-    lastModified: new Date(),
   }));
 
   // /admin n'apparaît jamais ici (voir aussi app/robots.ts et proxy.ts).

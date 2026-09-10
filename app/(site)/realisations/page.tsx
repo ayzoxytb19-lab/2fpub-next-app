@@ -1,11 +1,25 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getPublishedRealisations } from "@/lib/realisations/data";
 import RealisationsGallery from "@/components/RealisationsGallery";
 import RealisationsPageEffects from "./RealisationsPageEffects";
+import { BreadcrumbJsonLd } from "@/components/PageJsonLd";
 
 // Les réalisations viennent de la base (gérées depuis /admin/realisations) :
 // jamais de pré-rendu figé au build.
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: { absolute: "Réalisations 2F PUB | Covering, enseignes, textile & impression" },
+  description:
+    "Projets réels réalisés par 2F PUB pour des entreprises d'Île-de-France : covering véhicule, enseignes lumineuses, textile personnalisé, vitrophanie et impression.",
+  alternates: { canonical: "/realisations" },
+  openGraph: {
+    title: "Réalisations 2F PUB | Covering, enseignes, textile & impression",
+    description:
+      "Projets réels réalisés par 2F PUB pour des entreprises d'Île-de-France : covering véhicule, enseignes lumineuses, textile personnalisé, vitrophanie et impression.",
+  },
+};
 
 export default async function RealisationsPage() {
   let projects: Awaited<ReturnType<typeof getPublishedRealisations>> = [];
@@ -17,6 +31,7 @@ export default async function RealisationsPage() {
 
   return (
     <div className="page active" id="page-realisations">
+      <BreadcrumbJsonLd items={[{ name: "Accueil", path: "/" }, { name: "Réalisations", path: "/realisations" }]} />
       <RealisationsPageEffects />
 
       <section className="rea-hero">
@@ -313,7 +328,7 @@ export default async function RealisationsPage() {
               </h2>
               <p className="cta-card-sub">
                 Passez à l&apos;atelier au 217 av. Jean Jaurès, ou envoyez-nous un plan / une photo — on revient vers
-                vous avec un devis chiffré sous 48h.
+                vous avec un devis chiffré sous 24h.
               </p>
             </div>
             <div className="cta-card-btns">

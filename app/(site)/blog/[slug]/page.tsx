@@ -6,6 +6,8 @@ import { renderMarkdown } from "@/lib/markdown";
 
 export const dynamic = "force-dynamic";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.2fpub.fr";
+
 type Post = {
   title: string;
   excerpt: string;
@@ -45,9 +47,13 @@ export async function generateMetadata({
   return {
     title: `${post.title} — Blog 2F Publicité`,
     description: post.excerpt || undefined,
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt || undefined,
+      type: "article",
+      publishedTime: post.published_at,
+      authors: post.author_display_name ? [post.author_display_name] : undefined,
       images: post.cover_image_url ? [post.cover_image_url] : undefined,
     },
   };
@@ -66,8 +72,30 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   if (!post) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt || undefined,
+    image: post.cover_image_url || undefined,
+    datePublished: post.published_at,
+    author: {
+      "@type": "Person",
+      name: post.author_display_name ?? "2F Publicité",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "2F Publicité",
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-2f-3d.png` },
+    },
+  };
+
   return (
     <div className="page active" id="page-blog-post">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="blog-post-hero">
         <div className="container">
           <Link href="/blog" className="btn-text-link">
@@ -87,7 +115,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       {post.cover_image_url && (
         <div className="container">
-          <img src={post.cover_image_url} alt="" className="blog-post-cover" />
+          <img src={post.cover_image_url} alt={post.title} className="blog-post-cover" />
         </div>
       )}
 
@@ -103,7 +131,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   <br />
                   Parlons-en autour d&apos;un café.
                 </h2>
-                <p className="cta-card-sub">Envoyez-nous un plan ou une photo — on revient vers vous avec un devis chiffré sous 48h.</p>
+                <p className="cta-card-sub">Envoyez-nous un plan ou une photo — on revient vers vous avec un devis chiffré sous 24h.</p>
               </div>
               <div className="cta-card-btns">
                 <Link className="btn-cta-devis" href="/devis">
