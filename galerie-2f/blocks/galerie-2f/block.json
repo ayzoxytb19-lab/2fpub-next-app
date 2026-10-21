@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "galerie-2f/galerie",
+	"title": "Galerie 2F",
+	"category": "media",
+	"icon": "format-gallery",
+	"description": "Galerie photos filtrable de 2F Pub. Les photos se gèrent dans le menu « Galerie 2F ».",
+	"keywords": [ "galerie", "photos", "réalisations", "2f" ],
+	"supports": {
+		"html": false,
+		"multiple": false,
+		"align": false
+	},
+	"editorScript": "file:./editor.js"
+}
