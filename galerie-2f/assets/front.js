@@ -9,6 +9,22 @@
   if (!root) return;
   var grid = root.querySelector('.f2g-grid');
   var empty = root.querySelector('.f2g-empty');
+  var ui = root.querySelector('.f2g-slider-ui');
+  var uiBar = ui.querySelector('.f2g-progress span');
+  var uiCount = ui.querySelector('.f2g-hint-count');
+  function updateUi(){
+    var n = grid.children.length;
+    ui.hidden = n < 2;
+    if (n < 2) return;
+    var step = grid.children[0].offsetWidth + 12;
+    var idx = Math.min(n - 1, Math.round(grid.scrollLeft / step));
+    var max = grid.scrollWidth - grid.clientWidth;
+    var pct = Math.max(100 / n, 14);
+    uiBar.style.width = pct + '%';
+    uiBar.style.left = (max > 0 ? (grid.scrollLeft / max) * (100 - pct) : 0) + '%';
+    uiCount.textContent = (idx + 1) + ' / ' + n;
+  }
+  function markSeen(){ if (grid.scrollLeft > 20) ui.classList.add('seen'); }
   var lb = document.getElementById('f2g-lightbox');
   var lbImg = lb.querySelector('img');
   document.body.appendChild(lb);
@@ -42,6 +58,7 @@
     });
     grid.innerHTML = '';
     grid.scrollLeft = 0;
+    ui.classList.remove('seen');
     empty.classList.toggle('hidden', list.length > 0);
     list.forEach(function(p){
       var badge = subLabel(p.cat, p.sub) || tabLabel(p.cat);
@@ -56,7 +73,10 @@
       card.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
       grid.appendChild(card);
     });
+    updateUi();
   }
+  grid.addEventListener('scroll', function(){ updateUi(); markSeen(); }, { passive: true });
+  window.addEventListener('resize', updateUi);
   function select(cat, sub){ state.cat = cat; state.sub = sub || ''; closeMenus(); render(); }
   for (var k = 0; k < tabs.length; k++) {
     (function(t){

@@ -46,7 +46,13 @@ function galerie_2f_get_categories() {
 				'pmma-alu'     => 'Relief PMMA + Alu',
 				'plexi'        => 'Boîtier plexi',
 				'plexi-opaque' => 'Boîtier plexi (côtés opaques)',
+				'drapeau'      => 'Enseigne drapeau',
 			),
+		),
+		'logo-lumineux'     => array(
+			'label'     => 'Logo Lumineux',
+			'all_label' => '',
+			'subs'      => array(),
 		),
 		'impression'        => array(
 			'label'     => 'Impression et autocollants',

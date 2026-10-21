@@ -1,0 +1,15 @@
+Galerie 2F : historique des versions
+Développé par Malcolm (2F PUB)
+
+= 1.2 : Logo Lumineux =
+* Nouvelle catégorie « Logo Lumineux » (sans sous-catégorie), placée après Enseignes.
+* Nouvelle sous-catégorie « Enseigne drapeau » dans Enseignes.
+
+= 1.1 : Slider mobile =
+* Mobile : photo plus grande (pleine largeur), aperçu de la photo suivante.
+* Mobile : barre de progression, compteur « 1 / N » et indication « Faites glisser pour voir la suite ».
+
+= 1.0 : Première version =
+* Page admin « Galerie 2F » (médiathèque, catégories et sous-catégories, glisser-déposer).
+* Shortcode [galerie_2f], bloc Gutenberg, widget Elementor.
+* Images responsives (srcset).

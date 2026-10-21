@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Galerie 2F
  * Description: Galerie photos filtrable (catégories et sous-catégories) gérable sans code. Utiliser le shortcode [galerie_2f].
- * Version:     1.0.0
+ * Version:     1.2
  * Author:      Malcolm (2F PUB)
  * Author URI:  https://www.2fpub.fr
  * Text Domain: galerie-2f
@@ -15,7 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GALERIE_2F_VERSION', '1.0.0' );
+define( 'GALERIE_2F_VERSION', '1.2' );
+define( 'GALERIE_2F_RELEASE_NAME', 'Logo Lumineux' );
 define( 'GALERIE_2F_FILE', __FILE__ );
 define( 'GALERIE_2F_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GALERIE_2F_URL', plugin_dir_url( __FILE__ ) );

@@ -176,7 +176,7 @@ function galerie_2f_admin_page() {
 			</div>
 		</form>
 
-		<p class="g2f-credit">Plugin développé par Malcolm (2F PUB). Les photos sont recadrées automatiquement (format 4/3 sur mobile, grille 3 colonnes sur ordinateur) et s’adaptent à tous les écrans.</p>
+		<p class="g2f-credit">Galerie 2F version <?php echo esc_html( GALERIE_2F_VERSION ); ?> « <?php echo esc_html( GALERIE_2F_RELEASE_NAME ); ?> » : plugin développé par Malcolm (2F PUB). Les photos sont recadrées automatiquement (format 4/3 sur mobile, grille 3 colonnes sur ordinateur) et s’adaptent à tous les écrans.</p>
 	</div>
 	<?php
 }
